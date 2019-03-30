@@ -151,9 +151,6 @@
       <div class="grid__item lg--up--one-half">
         <div class="footer__credit">
           <p>&copy; {{ 'now' | date: "%Y" }} <a href="/" class=" color--{{ section_color }}-text">{{ shop.name }}</a></p>
-          <p class="font-size--xs powered-by mb1 color--{{ section_color }}-text powered_by_link">
-            {{ powered_by_link }}
-          </p>
             {% if section.settings.show_theme_credit %}
             <p class="theme-credit font-size--xs m0">
               {{ 'layout.footer.theme_credit_html' | t: section_color: section_color }}

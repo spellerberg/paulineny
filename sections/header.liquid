@@ -11,12 +11,12 @@
     }
   {%- endif -%}
 
-  
+
 </style>
 
 {%- assign feature_image_placeholder = false -%}
 {% if section.settings.show_banner %}
-  {%- if  template.name == 'index' -%}    
+  {%- if  template.name == 'index' -%}
     {% comment %}
     Add class to body to fix section padding for first section
     {% endcomment %}
@@ -46,10 +46,10 @@
   {% endif %}
   {% if section.settings.show_banner and section.settings.sticky_header and section.settings.show_announcement %}
     {% capture sticky_header_banner %}data-sticky-header-with-banner-and-announcement="true"{% endcapture %}
-  {% endif %} 
+  {% endif %}
   {% if section.settings.show_banner and section.settings.sticky_header and section.settings.show_announcement == false %}
     {% capture sticky_header_banner %}data-sticky-header-with-banner-and-no-announcement="true"{% endcapture %}
-  {% endif %} 
+  {% endif %}
 {% else %}
   {%- if section.settings.sticky_header %}
     {% capture sticky_data %}data-sticky-header="true" {% if section.settings.show_announcement %}{% if section.settings.home_page_only == false or template.name == 'index' %}data-announcement="true"{% endif %}{% endif %}{% endcapture %}
@@ -64,7 +64,7 @@
 
   <header class="site-header {% if section.settings.show_banner and template.name == 'index'  %}{%- if section.settings.sticky_header and section.settings.show_announcement == false %}lg--up--fixed{% else %}absolute{% endif %} top--0 left--0{% endif %} full--w {% if section.settings.show_announcement %}{% if section.settings.home_page_only == false or template.name == 'index' %}has-announcement{% endif %}{% endif %}" data-site-header>
 
-    
+
 
     <div class="header__main">
 
@@ -205,7 +205,14 @@
                   {% else %}
                   {{ 'layout.cart.title' | t }}
                   {% endif %}
-                  {% unless section.settings.show_cart_icon %}({% endunless %}<span id="CartCount">{{ cart.item_count }}</span>{% unless section.settings.show_cart_icon %}){% endunless %}
+
+                  {% if cart.item_count != 0 %}
+                    {% unless section.settings.show_cart_icon %}({% endunless %}
+                    <span id="CartCount">{{ cart.item_count }}</span>
+                    {% unless section.settings.show_cart_icon %}){% endunless %}
+                  {% endif %}
+
+
                 </div>
               </a>
             </div>

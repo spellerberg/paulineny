@@ -5,42 +5,24 @@
 <footer class="{{ global__section_with_padding_class }} color--{{ section_color }}-text bg--{{ section_color }}-background">
   <div class="max-site-width lg--up--px3">
     <div class="grid px2 lg--up--px0 ">
-      <div class="grid__item mb3 md--up--one-whole lg--up--one-seventh">
-        <div class="grid">
-          <div class="grid__item one-third lg--up--one-whole">
-            <a href="/" class="font-size--xl f--heading color--{{ section_color }}-text">
-              {% assign logo_max_width = 100 %}
-              {% if section.settings.logo != blank %}
-                {% capture image_size %}{{ logo_max_width }}x{% endcapture %}
-                <img src="{{ section.settings.logo | img_url: image_size }}"
-                     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                     alt="{{ section.settings.logo.alt | default: shop.name }}"
-                     >
-              {% else %}
-                {{ shop.name }}
-              {% endif %}
-            </a>
-          </div>
-          <div class="grid__item two-thirds text-align--right lg--up--one-whole lg--up--mt2 lg--up--text-align--left">
-            {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-            <ul class="list--reset p0 m0 mxn1">
-              {% for social in social_accounts %}
-                {%- assign social_handle = social | handleize -%}
-                {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-                {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+      <div class="text-align--right">
+        {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+        <ul class="list--reset p0 m0 mxn1">
+          {% for social in social_accounts %}
+            {%- assign social_handle = social | handleize -%}
+            {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+            {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
 
-                {% if settings[social_link] != blank %}
-                  <li class="inline-block">
-                    <a class="color--{{ section_color }}-text px1 font-size--xxs mb1 block" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-                      {% include social_icon %}
-                      <span class="icon-fallback-text">{{ social }}</span>
-                    </a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
+            {% if settings[social_link] != blank %}
+              <li class="inline-block">
+                <a class="color--{{ section_color }}-text px1 font-size--xxs mb1 block" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                  {% include social_icon %}
+                  <span class="icon-fallback-text">{{ social }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
       <div class="grid__item mb3 md--up--one-whole lg--up--six-sevenths">
         <div class="grid">

@@ -205,14 +205,6 @@
                   {% else %}
                   {{ 'layout.cart.title' | t }}
                   {% endif %}
-
-                  {% if cart.item_count != 0 %}
-                    {% unless section.settings.show_cart_icon %}({% endunless %}
-                    <span id="CartCount">{{ cart.item_count }}</span>
-                    {% unless section.settings.show_cart_icon %}){% endunless %}
-                  {% endif %}
-
-
                 </div>
               </a>
             </div>

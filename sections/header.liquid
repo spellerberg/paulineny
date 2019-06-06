@@ -62,7 +62,18 @@
   <div class="header-placeholder full--w hide" data-header-placeholder></div>
   {% endunless %}
 
-  <header class="site-header {% if section.settings.show_banner and template.name == 'index'  %}{%- if section.settings.sticky_header and section.settings.show_announcement == false %}lg--up--fixed{% else %}absolute{% endif %} top--0 left--0{% endif %} full--w {% if section.settings.show_announcement %}{% if section.settings.home_page_only == false or template.name == 'index' %}has-announcement{% endif %}{% endif %}" data-site-header>
+  <header class="site-header
+    {% if section.settings.show_banner and template.name == 'index'  %}
+      {%- if section.settings.sticky_header and section.settings.show_announcement == false %}
+        lg--up--fixed
+      {% else %}
+        absolute
+      {% endif %}
+
+      top--0 left--0
+    {% else %}
+      black
+    {% endif %} full--w {% if section.settings.show_announcement %}{% if section.settings.home_page_only == false or template.name == 'index' %}has-announcement{% endif %}{% endif %}" data-site-header>
 
 
 
@@ -97,77 +108,29 @@
       <div class="header__shifter full--w"></div>
 
         <div class="header-table flex items--center justify--between full--w px2 py3 max-site-width lg--up--px3  lg--up--relative">
+
+
           <div class="header-table__bookend align--middle text-align--left lg--up--hide md--dn--flex--1-basis-0">
-            <div class="js">
-              {% if section.settings.show_menu_icon %}
-                <button type="button" class="t--header-navigation site-header__menu-btn btn border--none font-size--m bg--transparent" aria-controls="MobileNav" aria-expanded="false" data-active-header-trigger data-active-target="navigation">
-                  <div class="left">{% include 'svg' | icon: 'icon-menu' %}</div>
-                </button>
-              {% else %}
-                <a class="t--header-navigation {{ header_underline_link }} font-size--m bg--transparent inline-block pointer" aria-controls="MobileNav" aria-expanded="false" data-active-header-trigger data-active-target="navigation"  tabindex="0">
-                  <div class="header__link-wrapper">{{ 'general.navigation.menu' | t }}</div>
-                </a>
-              {% endif %}
-            </div>
-            {% include 'no-js__mobile-menu' %}
+            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} font-size--m bg--transparent inline-block pointer">
+              <div class="header__link-wrapper">Info</div>
+            </a>
           </div>
+
           <div class="nav__container align--middle text-align--left md--dn--hide lg--up--flex--1 overflow--hidden">
-            <div data-desktop-navigation-container>
-              <nav role="navigation">
-                <ul class="t--header-navigation site-nav list--reset m0 p0 font-size--m mxn1 no-wrap inline-block"  data-desktop-navigation-list>
-                  {% for link in linklists[section.settings.main_linklist].links %}
-                    {%- assign child_list_handle = link.title | handleize -%}
-                    {% if menus[child_list_handle].links != blank %}
-                      <li class="nav__item site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}  inline-block">
-                        <a class="site-nav__link {{ header_underline_link }}  px1 inline-block header__link no-wrap pointer {% if forloop.last %}site-nav__link--last{% endif %}"  data-active-header-trigger data-active-target="navigation" data-first-level-link="desktop" data-key="{{ child_list_handle }}--{{ forloop.index }}" data-top-level-item tabindex="0"  aria-haspopup="true">
-                          <div class="header__link-wrapper">
-                            {{ link.title }}
-                            <span class="site-nav__chevron-down font-size--xxs align--middle inline-block site-nav__svg">{% include 'svg', icon: 'icon-chevron-down' %}</span>
-                            <span class="site-nav__chevron-up font-size--xxs  align--middle inline-block site-nav__svg hide">{% include 'svg', icon: 'icon-chevron-up' %}</span>
-                          </div>
-                        </a>
-                        {%- assign link_handle = link.title | handleize -%}
-                        {% include 'no-js__submenu' %}
-                      </li>
-                    {% else %}
-                      <li class="nav__item inline-block {% if link.active %}site-nav--active{% endif %}" >
-                        <a href="{{ link.url }}" class="site-nav__link {{ header_underline_link }} px1 align--top header__link inline-block no-wrap" data-top-level-item>
-                          <div class="header__link-wrapper">{{ link.title }}</div>
-                        </a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                  <li class="site-nav--has-submenu inline-block hide" data-desktop-navigation-more-link>
-                    <a class="site-nav__link {{ header_underline_link }} px2 inline-block header__link no-wrap pointer" data-desktop-navigation-more-link-trigger  data-top-level-item tabindex="0">
-                      <div class="header__link-wrapper">
-                        {{ 'general.navigation.more' | t }}
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} font-size--m bg--transparent inline-block pointer">
+              <div class="header__link-wrapper">Info</div>
+            </a>
           </div>
+
           <div class="header-table__center align--middle text-align--center flex--grow--1  md--dn--flex--1-basis-0 lg--up--flex--grow--0 lg--justify--center lg--items--center">
+
             {% if template.name == 'index' %}
               <h1 class="header__logo m0 lg--up--px3 {% if section.settings.logo != blank %}font-size--0{% endif %}" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="header__logo {% unless section.settings.logo != blank %}h1{% else %}font-size--0{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-                <a href="/" itemprop="url" class="font-size--xl color--{{ section_color }}-text color--header-active f--heading  site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-                  {% if section.settings.logo != blank %}
-                    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-                    <img src="{{ section.settings.logo | img_url: image_size }}"
-                         srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                         alt="{{ section.settings.logo.alt | default: shop.name }}"
-                         itemprop="logo">
-                  {% else %}
-                    {{ shop.name }}
-                  {% endif %}
-                </a>
-            {% if template.name == 'index' %}
+                <a href="/" itemprop="url" class="font-size--xl color--headerlogo color--header-active f--heading hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </h1>
             {% else %}
+              <div class="header__logo {% unless section.settings.logo != blank %}h1{% else %}font-size--0{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
+                <a href="/" itemprop="url" class="font-size--xl color--headerlogo color--header-active header-static-color f--heading  site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </div>
             {% endif %}
           </div>
@@ -238,6 +201,9 @@
             data-sizes="auto"
             data-parent-fit="cover"
             style="padding-top:{{ padding }}; background-image: url({{ feature_image | img_url: '300x300' }}); background-size: cover;">
+
+            <div class="paulinelarge">Pauline</div>
+
           <a class="absolute pointer full top--0 left--0 flex items--end justify--center pb2"  data-banner-scroll>
             <button class="btn border--none border--none bg--transparent color--{{ section_color }}-text hv--primary-accent font-size--l">{% include 'icon-arrow-down' %}</button>
           </a>

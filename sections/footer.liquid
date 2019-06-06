@@ -2,10 +2,16 @@
 {%- include 'global-variables' -%}
 
 
+
 <footer class="{{ global__section_with_padding_class }} color--{{ section_color }}-text bg--{{ section_color }}-background">
-  <div class="max-site-width lg--up--px3">
-    <div class="grid px2 lg--up--px0 ">
-      <div class="text-align--right">
+
+    <div class="footer-grid">
+
+      <div class="footer-copyright">
+        <p>&copy; {{ 'now' | date: "%Y" }} <a href="/" class=" color--{{ section_color }}-text">{{ shop.name }}</a></p>
+      </div>
+
+      <div class="footer-social">
         {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
         <ul class="list--reset p0 m0 mxn1">
           {% for social in social_accounts %}
@@ -24,124 +30,7 @@
           {% endfor %}
         </ul>
       </div>
-      <div class="grid__item mb3 md--up--one-whole lg--up--six-sevenths">
-        <div class="grid">
 
-        {% case section.blocks.size %}
-          {% when 1 %}
-            {% assign footer_grid_width = 'md--up--one-whole lg--up--one-whole' %}
-          {% when 2 %}
-            {% assign footer_grid_width = 'md--up--one-half lg--up--one-half' %}
-          {% when 3 %}
-            {% assign footer_grid_width = 'md--up--one-whole lg--up--one-third' %}
-          {% else %}
-            {% assign footer_grid_width = 'md--up--one-whole lg--up--one-whole' %}
-        {% endcase %}
-
-          {% for block in section.blocks %}
-          <div class="grid__item {{ global__basic_font_size }} {{ footer_grid_width }} mb3 lg-up--mb0">
-
-            {% if block.type == 'menus' %}
-
-              {% assign single_linklist = false %}
-
-              {% if block.settings.main_linklist == blank and block.settings.secondary_linklist != blank %}
-                {% assign single_linklist = true %}
-              {% endif %}
-
-              {% if block.settings.main_linklist != blank and block.settings.secondary_linklist == blank %}
-                {% assign single_linklist = true %}
-              {% endif %}
-
-              <div class="grid">
-                {% if block.settings.main_linklist  != blank %}
-                  {% assign link_list = block.settings.main_linklist %}
-                  {% include 'footer__linklist' %}
-                {% endif %}
-                {% if block.settings.secondary_linklist  != blank %}
-                  {% assign link_list = block.settings.secondary_linklist %}
-                  {% include 'footer__linklist' %}
-                {% endif %}
-              </div>
-            {% endif %}
-
-            {% if block.type == 'richtext' %}
-              <div class="three-quarters lg--up--one-whole richtext">
-                {{ block.settings.text }}
-              </div>
-              {% endif %}
-
-            {% if block.type == 'newsletter' %}
-              {% if block.settings.text != blank %}
-                  <div class="line-height--3 {{ global__basic_font_size }}">
-                    {{ block.settings.text}}
-                  </div>
-                {% endif %}
-                {% form 'customer' %}
-                  {{ form.errors | default_errors }}
-                  {% if form.posted_successfully? %}
-                    <p class="form--success f--main">{{ 'general.newsletter_form.confirmation' | t }}</p>
-                  {% else %}
-                    <div class="input-group">
-                      <input type="hidden" name="contact[tags]" value="newsletter">
-                      <label for="Email" class="hide">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-                      <input type="email"
-                        name="contact[email]"
-                        id="Email"
-                        class="input-group-field px2 py1 bg--transparent border--{{ section_color }}-text color--{{ section_color }}-text font-size--s"
-                        value="{% if customer %}{{ customer.email }}{% endif %}"
-                        placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
-                        autocorrect="off"
-                        autocapitalize="off">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn border--none newsletter__submit px2 py1 font-size--s bg--{{ section_color }}-text border--{{ section_color }}-text color--{{ section_color }}-text--overlay {{ global__hover_bg_border }}" name="commit" id="Subscribe">
-                          <span class="newsletter__submit">{{ 'general.newsletter_form.submit' | t }}</span>
-                        </button>
-                      </span>
-                    </div>
-                  {% endif %}
-                {% endform %}
-            {% endif %}
-
-          </div>
-          {% endfor %}
-
-
-        </div>
-      </div>
-    </div>
-
-    <div class="grid {% if section.settings.show_payment_icons and shop.enabled_payment_types != empty %}grid--rev{% endif %} px2 mt2 lg--up--px0">
-
-      {% if section.settings.show_payment_icons %}
-        {% unless shop.enabled_payment_types == empty %}
-        <div class="grid__item lg--up--one-half mb3 lg--up--mb0">
-          <div class="text-align--left lg--up--text-align--right">
-            <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-            <ul class="payment-icons m0 p0 list--reset font-size--xl mxn1">
-              {% for type in shop.enabled_payment_types %}
-                <li class="inline-block">
-                  {{ type | payment_type_svg_tag: class:'payment-icon' }}
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-        {% endunless %}
-      {% endif %}
-
-      <div class="grid__item lg--up--one-half">
-        <div class="footer__credit">
-          <p>&copy; {{ 'now' | date: "%Y" }} <a href="/" class=" color--{{ section_color }}-text">{{ shop.name }}</a></p>
-            {% if section.settings.show_theme_credit %}
-            <p class="theme-credit font-size--xs m0">
-              {{ 'layout.footer.theme_credit_html' | t: section_color: section_color }}
-            </p>
-          {% endif %}
-        </div>
-      </div>
-
-    </div>
   </div>
 </footer>
 

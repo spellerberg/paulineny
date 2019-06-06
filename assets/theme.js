@@ -830,7 +830,7 @@ theme.watchQuantityInputs = function() {
  */
 
 slate.cart = {
-  
+
   /**
    * Browser cookies are required to use the cart. This function checks if
    * cookies are enabled in the browser.
@@ -987,7 +987,7 @@ slate.rte = {
     options.$iframes.each(function() {
       // Add wrapper to make video responsive
       $(this).wrap('<div class="' + iframeWrapperClass + '"></div>');
-      
+
       // Re-set the src attribute on each iframe after page load
       // for Chrome's "incorrect iFrame content on 'back'" bug.
       // https://code.google.com/p/chromium/issues/detail?id=395791
@@ -1486,7 +1486,7 @@ theme.mobileFlickity = function(container) {
     prevNextButtons: false,
     pageDots: false
   });
-  
+
   if($slides.find('.initial-selected').length) {
     var index = $slides.find('.initial-selected').index();
     $slides.flickity( 'select', index );
@@ -1575,8 +1575,8 @@ theme.Header = (function() {
 
 
     if (this.$container.attr("data-sticky-header")
-        && !(this.$container.attr("data-sticky-header-with-banner-and-announcement")) 
-        && !(this.$container.attr("data-sticky-header-with-banner-and-no-announcement"))      
+        && !(this.$container.attr("data-sticky-header-with-banner-and-announcement"))
+        && !(this.$container.attr("data-sticky-header-with-banner-and-no-announcement"))
     ) {
 
       this.$container.parents('div').addClass('sticky-header-container');
@@ -1588,21 +1588,47 @@ theme.Header = (function() {
       }
     }
 
+    // FIXED HEADER LOGIC
     //set headerPlaceholder height
+
     var height = this.$header.height() + "px";
     this.$headerPlaceholder.css("height", height);
 
-    var watcher = scrollMonitor.create( $('.banner_image') );
+    var siteHeaderHeight = $('.site-header').outerHeight();
+    var watcher = scrollMonitor.create( $('.banner_image'), -siteHeaderHeight );
     var $header = this.$header;
+
     watcher.enterViewport(function() {
+
       var item = $(this.watchItem);
+
       $('.color--header-active').removeClass('header-static-color');
+
+      var dofade = true;
+  		$('.color--header-active').one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(event) {
+  			if ( dofade ) {
+          $('.color--header-active').addClass('hidden');
+  				dofade = false;
+  			}
+  		});
+
+      $('.site-header').removeClass('black');
+
       $header.removeClass('stuck');
+
     });
+
     watcher.exitViewport(function() {
+
       var item = $(this.watchItem);
+
       $header.addClass('stuck');
+
+      $('.color--header-active').removeClass('hidden');
       $('.color--header-active').addClass('header-static-color');
+
+      $('.site-header').addClass('black');
+
     });
 
     if (this.$container.attr("data-sticky-header-with-banner-and-announcement") ) {
@@ -1618,9 +1644,9 @@ theme.Header = (function() {
           $header.css('top', '');
           $header.removeClass('lg--up--fixed');
         }
-      });  
+      });
     }
-    
+
 
     // Enabled ajax cart if no products
     if (
@@ -2744,7 +2770,7 @@ theme.Instagram = (function() {
                 .find(".gram-image")
                 .addClass("lazyload");
             }
-            
+
 
             //show caption if enabled
             if (_showCaption && caption !== "") {
@@ -3105,7 +3131,7 @@ theme.Cascade = (function() {
     if ( $(container).data("first-item") === 'right' ) {
       originLeft = false;
     };
-    
+
     this.$masonryGrid = this.$cascade.masonry({
       itemSelector: ".item",
       columnWidth: ".column-sizer",
@@ -3614,4 +3640,8 @@ $(document).ready(function() {
 
   theme.watchQuantityInputs();
   theme.productGridItems();
+
+  var siteHeaderHeight = $('.site-header').outerHeight();
+  $("#MainContent").css('padding-top',siteHeaderHeight+'px');
+
 });

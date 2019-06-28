@@ -1293,6 +1293,7 @@ slate.Variants = (function() {
    * @param {object} options - Settings from `product.js`
    */
   function Variants(options) {
+
     this.$container = options.$container;
     this.product = options.product;
     this.singleOptionSelector = options.singleOptionSelector;
@@ -1312,12 +1313,14 @@ slate.Variants = (function() {
      * @return {array} options - Values of currently selected variants
      */
     _getCurrentOptions: function() {
+
       var currentOptions = $.map($(this.singleOptionSelector, this.$container), function(element) {
         var $element = $(element);
         var type = $element.attr('type');
         var currentOption = {};
 
         if (type === 'radio' || type === 'checkbox') {
+
           if ($element[0].checked) {
             currentOption.value = $element.val();
             currentOption.index = $element.data('index');
@@ -1327,6 +1330,7 @@ slate.Variants = (function() {
             return false;
           }
         } else {
+
           currentOption.value = $element.val();
           currentOption.index = $element.data('index');
 

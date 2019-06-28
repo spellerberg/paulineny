@@ -119,7 +119,7 @@
           <h1 class="f--heading {{ global__heading_font_size }} m0 mb1">{{ product.title }}</h1>
           {%- endif -%}
 
-          <div class="font-size--ml" data-price-wrapper>
+          <div class="f--heading {{ global__heading_font_size }} m0 mb1" data-price-wrapper>
             <span {% if product.compare_at_price_max > product.price %}class="color--{{ section_color }}-accent"{% endif %} data-product-price>
               {{ current_variant.price | money }}
             </span>
@@ -133,6 +133,12 @@
             {% endif %}
           </div>
 
+          {% if product.description != empty or product.description != '' %}
+              <div class="mt3 rte {{ global__basic_font_size }}" data-product-description>
+                {{ product.description }}
+              </div>
+            {% endif %}
+
           <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
             <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
@@ -142,26 +148,21 @@
             {% form 'product', product %}
               {% unless product.has_only_default_variant %}
                 {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js mt2 font-size--m">
-                    {% unless hide_drop_down_labels %}
-                    <label class="block" for="SingleOptionSelector-{{ forloop.index0 }}">
-                      {{ option.name }}
-                    </label>
-                    {% endunless %}
-                    <select
-                      class="bg--transparent border--{{ section_color }}-text color--{{ section_color }}-text p1 block full--w font-size--sm mt1"
-                      id="SingleOptionSelector-{{ forloop.index0 }}"
-                      data-single-option-selector
-                      data-index="option{{ option.position }}">
+                    <fieldset class="productoption">
+                      <legend for="{{ option.name }}">{{ option.name }}</legend>
                       {% for value in option.values %}
-                        <option
-                          value="{{ value | escape }}"
-                          {% if option.selected_value == value %}selected="selected"{% endif %}>
-                            {{ value }}
-                        </option>
+                       <input
+                          type="radio"
+                          name="{{ option.name }}"
+                          id="{{ value | escape }}"
+                          value="{{ value }}"
+                          {% if option.selected_value == value %}selected="selected"{% endif %}
+                          data-index="option{{ option.position }}"
+                          data-single-option-selector
+                        >
+                       <label for="{{ value | escape }}">{{ value }}</label>
                       {% endfor %}
-                    </select>
-                  </div>
+                    </fieldset>
                 {% endfor %}
               {% endunless %}
 
@@ -187,21 +188,20 @@
               </div>
               {% endif %}
 
-              <div class="add-to-cart-container mt3 {% unless current_variant.available %}hide-pay-buttons{% endunless %}  {% if enable_payment_button %}cta-content--pay-buttons{% endif %}" data-add-to-cart-container>
+              <div data-add-to-cart-container>
                 <button
-                  class="btn border--none btn--add-to-cart color-scheme--{{ section_color }} {% if enable_payment_button %}bg--transparent color--{{ section_color }}-text border--{{ section_color }}-text hv--{{ section_color }}-accent hv--border--{{ section_color }}-accent {% else %}border--none bg--{{ section_color }}-text color--{{ section_color }}-text--overlay {{ global__hover_bg }}{% endif %} p1 full--w block"
+                  class="paulineaddbutton"
                   type="submit"
                   name="add"
                   id="AddToCart--{{ section_id }}"
                   data-add-to-cart
-                  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-                    <span data-add-to-cart-text>
+                  {% unless current_variant.available %}disabled="disabled"{% endunless %}
+                  data-text="{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}">
                       {% if current_variant.available %}
                         {{ 'products.product.add_to_cart' | t }}
                       {% else %}
                         {{ 'products.product.sold_out' | t }}
                       {% endif %}
-                    </span>
                 </button>
                 {% if enable_payment_button %}
                   <div class="mt2 payment-button-wrapper color--{{ section_color }}">{{ form | payment_button }}</div>
@@ -213,14 +213,6 @@
           </div>
         </div>
         <div class="px2 max-width--2 md--up--pt0 lg--up--px3"">
-          {% if description_under_add_to_cart %}
-            {% if product.description != empty or product.description != '' %}
-              <div class="mt3 rte {{ global__basic_font_size }}" data-product-description>
-                {{ product.description }}
-              </div>
-            {% endif %}
-          {% endif %}
-
           {% if show_share_links %}
           <div {% unless enable_payment_button %}class="mt3"{% endunless %}>
             {% include 'page-share' %}

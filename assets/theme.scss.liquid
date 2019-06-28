@@ -1922,8 +1922,8 @@ Helper
   }
 
   .#{$i}is-transitioning {
-    display: block !important;
-    visibility: visible !important;
+    // display: block !important;
+    // visibility: visible !important;
   }
 }
 
@@ -3275,7 +3275,7 @@ $modaal-grey: #afb7bc;
 // Modaal Mixins
 // --------------------------------------------------------
 @mixin modaal-transition($type, $speed: .2s, $ease: ease-in-out) {
-	transition: $type #{$speed} #{$ease};
+	// transition: $type #{$speed} #{$ease};
 }
 @mixin modaal-hidetext() {
 	position: absolute !important;
@@ -4986,9 +4986,9 @@ Header
 }
 
 .is-header-transitioning {
-  display: block !important;
-  visibility: visible !important;
-  height: 100vh !important;
+  // display: block !important;
+  // visibility: visible !important;
+  // height: 100vh !important;
 
 }
 
@@ -5488,6 +5488,8 @@ Gift Card
 .site-header {  }
 .site-header.black { background: #000; }
 
+.site-header.active .header-table { display: none; }
+
 .color--headerlogo { color: transparent;  }
 .color--headerlogo.hidden { display: none; }
 .color--headerlogo.header-static-color { color: #fff; }
@@ -5501,3 +5503,33 @@ Gift Card
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; padding: 0 2.5rem; }
 .footer-copyright { text-align: left; }
 .footer-social { text-align: right; }
+
+// Product
+
+.productoption { border: none; margin-top: 2rem; padding: 0; }
+.productoption legend { color: #999; }
+.productoption input[type="radio"] { display: none; }
+.productoption input[type="radio"]:checked+label { color: #999; }
+.productoption label { margin-right: .25em; }
+.paulineaddbutton { position: relative; font-family: "PrismasetOne",sans-serif; text-transform: lowercase; font-weight: 400; font-style: normal; background: transparent; border: none; padding: 0; margin-top: 1em; font-size: 2rem; border-bottom: 1px solid #fff; cursor: pointer; }
+
+.paulineaddbutton::after,
+.paulineaddbutton::before {
+	content: attr(data-text);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: all 0.2s;
+}
+.paulineaddbutton:hover::after{
+  top: -6px;
+}
+.paulineaddbutton:hover::before{
+  top: -12px;
+}
+
+// Cart
+
+.cart--empty-message { margin-top: 45vh}

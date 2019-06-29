@@ -2,7 +2,7 @@
 {%- include 'global-variables' -%}
 
 {% if section.settings.show_announcement %}
-  {% capture class %}block full--w bg--{{ section.settings.announcement_color }}-background color--{{ section.settings.announcement_color }}-text px2 py1  font-size--sm text-align--center {% endcapture %}
+  {% capture class %}block full--w bg--{{ section.settings.announcement_color }}-background color--{{ section.settings.announcement_color }}-text px2 py1 text-align--center {% endcapture %}
   {% if section.settings.home_page_only == false or template.name == 'index' %}
     {% if section.settings.link == blank %}
       <div class="announcement-bar {{ class }}">

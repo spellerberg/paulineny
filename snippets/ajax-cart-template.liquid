@@ -30,7 +30,7 @@
                       {% endraw %}{{ 'cart.label.quantity' | t }}{% raw %}
                     </div>
                   </div>
-                  <div class="table-cell two-thirds text-align--right font-size--m">
+                  <div class="table-cell two-thirds text-align--right">
                     {% endraw %}{{ 'cart.label.total' | t }}{% raw %}
                   </div>
                 </div>
@@ -40,7 +40,7 @@
           </div>
 
           {{#items}}
-          <div class="cart__row font-size--sm mt3">
+          <div class="cart__row mt3">
             <div class="grid">
               <div class="grid__item lg--up--three-fifths">
                 <div class="grid grid--full ">
@@ -54,9 +54,9 @@
 
                       <div class="table full--w">
                         <div class="table-cell two-thirds">
-                          <a class="f--heading font-size--m md--up--font-size--l color--active-text" href="{{url}}">{{name}}</a>
+                          <a class="f--heading color--active-text" href="{{url}}">{{name}}</a>
                         </div>
-                        <div class="table-cell text-align--right font-size--m one-third md--up--hide">
+                        <div class="table-cell text-align--right one-third md--up--hide">
                           {{#if discountsApplied}}
                             <small class="ajaxcart__price--strikethrough">{{{linePrice}}}</small>
                             <span class="ajaxcart__price">
@@ -88,12 +88,12 @@
 
                       <div class="ajax-qty-wrapper color--main three-fifths pm--one-half md--up--hide">
                         <div class="ajax-qty mxn1">
-                          <div class="flex font-size--s">
-                            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus bg--transparent border--transparent font-size--xs color--active-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
+                          <div class="flex">
+                            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus bg--transparent border--transparent color--active-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
                               {% endraw %}{% include 'svg' | icon: 'icon-minus' %}{% raw %}
                             </button>
-                            <input type="text" name="updates[]" class="ajaxcart__qty-num border--transparent bg--transparent text-align--center full--w font-size--m color--active-text" value="{{itemQty}}" min="1" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
-                            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus  bg--transparent border--transparent  font-size--xs color--active-text" data-id="{{key}}" data-qty="{{itemAdd}}" data-line="{{line}}">
+                            <input type="text" name="updates[]" class="ajaxcart__qty-num border--transparent bg--transparent text-align--center full--w color--active-text" value="{{itemQty}}" min="1" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+                            <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus  bg--transparent border--transparent color--active-text" data-id="{{key}}" data-qty="{{itemAdd}}" data-line="{{line}}">
                               {% endraw %}{% include 'svg' | icon: 'icon-plus' %}{% raw %}
                             </button>
                           </div>
@@ -113,19 +113,19 @@
                   <div class="table-cell one-third">
                     <div class="ajax-qty-wrapper color--main">
                       <div class="ajax-qty">
-                        <div class="flex font-size--s ">
-                          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus bg--transparent border--transparent font-size--xs color--active-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
+                        <div class="flex">
+                          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus bg--transparent border--transparent color--active-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
                             {% endraw %}{% include 'svg' | icon: 'icon-minus' %}{% raw %}
                           </button>
-                          <input type="text" name="updates[]" class="ajaxcart__qty-num border--transparent bg--transparent text-align--center full--w font-size--m color--active-text" value="{{itemQty}}" min="1" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
-                          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus  bg--transparent border--transparent  font-size--xs color--active-text" data-id="{{key}}" data-qty="{{itemAdd}}" data-line="{{line}}">
+                          <input type="text" name="updates[]" class="ajaxcart__qty-num border--transparent bg--transparent text-align--center full--w color--active-text" value="{{itemQty}}" min="1" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+                          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus  bg--transparent border--transparent color--active-text" data-id="{{key}}" data-qty="{{itemAdd}}" data-line="{{line}}">
                             {% endraw %}{% include 'svg' | icon: 'icon-plus' %}{% raw %}
                           </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="table-cell two-thirds text-align--right font-size--m">
+                  <div class="table-cell two-thirds text-align--right">
                     {{#if discountsApplied}}
                       <small class="ajaxcart__price--strikethrough">{{{linePrice}}}</small>
                       <span class="ajaxcart__price">
@@ -152,15 +152,15 @@
               <div class="grid__item md--up--one-half">
                 <div class="md--up--pr4">
                   {% endraw %}{% if settings.cart_notes_enable %}{% raw %}
-                    <label class="inline-block mb1 font-size--sm" for="CartSpecialInstructions">{% endraw %}{{ 'cart.general.note' | t }}{% raw %}</label>
+                    <label class="inline-block mb1" for="CartSpecialInstructions">{% endraw %}{{ 'cart.general.note' | t }}{% raw %}</label>
                     <textarea class="bg--transparent border--active-text color--active-text full--w" name="note" id="CartSpecialInstructions">{% endraw %}{{ cart.note }}{% raw %}</textarea>
                   {% endraw %}{% endif %}{% raw %}
                 </div>
               </div>
 
               <div class="grid__item md--up--one-half md--up--text-align--right mt3 md--up--mt0 {% endraw %}{% unless settings.cart_notes_enable %}right{% endunless %}{% raw %}">
-                <p class="font-size--xs md--up--font-size--s m0">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
-                <div class="table full--w font-size--m mt1">
+                <p class="m0">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
+                <div class="table full--w mt1">
                   <div class="table-cell text-align--left md--up--text-align--right">
                     <p>{% endraw %}{{ 'cart.general.subtotal' | t }}{% raw %}</p>
                   </div>
@@ -189,12 +189,12 @@
   <script id="AjaxQty" type="text/template">
   {% raw %}
     <div class="ajaxcart__qty">
-      <div class="relative font-size--s ">
-        <button type="button" class="js-qty__adjust js-qty__adjust--minus bg--transparent border--transparent font-size--xs absolute top--0 left--0 full--h" data-id="{{key}}" data-qty="{{itemMinus}}">
+      <div class="relative ">
+        <button type="button" class="js-qty__adjust js-qty__adjust--minus bg--transparent border--transparent absolute top--0 left--0 full--h" data-id="{{key}}" data-qty="{{itemMinus}}">
           {% endraw %}{% include 'svg' | icon: 'icon-minus' %}{% raw %}
         </button>
-        <input type="text" class="js-qty__num border--transparent bg--transparent text-align--center full--w font-size--m" value="{{itemQty}}" min="1" data-id="{{key}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
-        <button type="button" class="js-qty__adjust js-qty__adjust--plus  bg--transparent border--transparent  font-size--xs absolute top--0 right--0 full--h" data-id="{{key}}" data-qty="{{itemAdd}}">
+        <input type="text" class="js-qty__num border--transparent bg--transparent text-align--center full--w" value="{{itemQty}}" min="1" data-id="{{key}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+        <button type="button" class="js-qty__adjust js-qty__adjust--plus  bg--transparent border--transparent absolute top--0 right--0 full--h" data-id="{{key}}" data-qty="{{itemAdd}}">
           {% endraw %}{% include 'svg' | icon: 'icon-plus' %}{% raw %}
         </button>
       </div>
@@ -204,12 +204,12 @@
   <script id="JsQty" type="text/template">
   {% raw %}
     <div class="js-qty">
-      <div class="relative font-size--s">
-        <button type="button" class="js-qty__adjust js-qty__adjust--minus bg--transparent border--transparent font-size--xs absolute top--0 left--0 full--h" data-id="{{key}}" data-qty="{{itemMinus}}">
+      <div class="relative">
+        <button type="button" class="js-qty__adjust js-qty__adjust--minus bg--transparent border--transparent absolute top--0 left--0 full--h" data-id="{{key}}" data-qty="{{itemMinus}}">
           {% endraw %}{% include 'svg' | icon: 'icon-minus' %}{% raw %}
         </button>
-        <input type="text" class="js-qty__num border--transparent bg--transparent text-align--center full--w font-size--m" value="{{itemQty}}" min="1" data-id="{{key}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
-        <button type="button" class="js-qty__adjust js-qty__adjust--plus  bg--transparent border--transparent  font-size--xs  absolute top--0 right--0 full--h" data-id="{{key}}" data-qty="{{itemAdd}}">
+        <input type="text" class="js-qty__num border--transparent bg--transparent text-align--center full--w" value="{{itemQty}}" min="1" data-id="{{key}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+        <button type="button" class="js-qty__adjust js-qty__adjust--plus  bg--transparent border--transparent absolute top--0 right--0 full--h" data-id="{{key}}" data-qty="{{itemAdd}}">
           {% endraw %}{% include 'svg' | icon: 'icon-plus' %}{% raw %}
         </button>
       </div>

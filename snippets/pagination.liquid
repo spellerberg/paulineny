@@ -1,7 +1,7 @@
 <div class="pagination {% unless align == 'left' %}text-align--center{% else %}mxn1{% endunless %} {{ global__basic_font_size }} pt4">
   {% if paginate.previous %}
     <a class="p1 pointer color--{{ section_color }}-text" href="{{ paginate.previous.url }}" title="{{ 'general.pagination.previous' | t }}">
-      <span class="font-size--xxxxs inline-block align--top border-bottom--transparent hv--border-bottom--{{ section_color }}-text">{% include 'icon-chevron-left' %}</span>
+      <span class="inline-block align--top border-bottom--transparent hv--border-bottom--{{ section_color }}-text">{% include 'icon-chevron-left' %}</span>
     </a>
   {% endif %}
   {% for part in paginate.parts %}
@@ -21,7 +21,7 @@
   {% endfor %}
   {% if paginate.next %}
     <a class="p1 pointer color--{{ section_color }}-text" href="{{ paginate.next.url }}" title="{{ 'general.pagination.next' | t }}">
-      <span class="font-size--xxxxs inline-block align--top border-bottom--transparent hv--border-bottom--{{ section_color }}-text">{% include 'icon-chevron-right' %}</span>
+      <span class="inline-block align--top border-bottom--transparent hv--border-bottom--{{ section_color }}-text">{% include 'icon-chevron-right' %}</span>
     </a>
   {% endif %}
 </div>

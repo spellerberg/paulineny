@@ -153,7 +153,7 @@
           {% if blog.comments_enabled? %}
           <div class="comments lg--up--three-quarters mt3 {{ global__basic_font_size }}">
 
-            <h3 class="f--heading font-size--ml">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
+            <h3 class="f--heading">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
 
             {% paginate article.comments by 5 %}
             <div id="comments">
@@ -262,7 +262,7 @@
 
               {% if blog.next_article %}
                 <a class="p1 pointer left color--{{ section_color }}-text hv--{{ section_color }}-accent" href="{{ blog.next_article }}" title="{{ 'blogs.article.newer_post' | t }}">
-                  <span class="font-size--xxxxs inline-block align--top">{% include 'icon-chevron-left' %}</span>
+                  <span class="inline-block align--top">{% include 'icon-chevron-left' %}</span>
                   {{ 'blogs.article.newer_post' | t }}
                 </a>
               {% endif %}
@@ -270,7 +270,7 @@
               {% if blog.previous_article %}
                 <a class="p1 pointer right color--{{ section_color }}-text hv--{{ section_color }}-accent" href="{{ blog.previous_article }}" title="{{ 'blogs.article.older_post' | t }}">
                   {{ 'blogs.article.older_post' | t  }}
-                  <span class="font-size--xxxxs inline-block align--top">{% include 'icon-chevron-right' %}</span>
+                  <span class="inline-block align--top">{% include 'icon-chevron-right' %}</span>
                 </a>
               {% endif %}
 

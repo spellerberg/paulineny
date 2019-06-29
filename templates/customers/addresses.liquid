@@ -27,7 +27,7 @@
 
             <div id="AddressNewForm" class="hide pb4">
               {% form 'customer_address', customer.new_address %}
-              <h2 class="f--heading font-size--l">{{ 'customer.addresses.add_new' | t }}</h2>
+              <h2 class="f--heading">{{ 'customer.addresses.add_new' | t }}</h2>
 
               {% if form.errors %}
                     {{ form.errors | default_errors }}
@@ -97,7 +97,7 @@
 
             </div>
 
-            <h2 class="f--heading font-size--l m0 mb2">{{ 'customer.addresses.title' | t }}</h2>
+            <h2 class="f--heading m0 mb2">{{ 'customer.addresses.title' | t }}</h2>
 
             {% for address in customer.addresses %}
 
@@ -120,7 +120,7 @@
                 <div id="EditAddress_{{ address.id }}" class="form-vertical hide pb3">
 
                   {% form 'customer_address', address %}
-                  <h4 class="f--heading font-size--l my2">{{ 'customer.addresses.edit_address' | t }}</h4>
+                  <h4 class="f--heading my2">{{ 'customer.addresses.edit_address' | t }}</h4>
                   <div class="grid">
                      <div class="grid__item one-half sm--one-whole">
                         <label for="AddressFirstName_{{ form.id }}" class="f--main mt2 mb1 block">
@@ -261,6 +261,3 @@
     </div>
   </div>
 </section>
-
-
-

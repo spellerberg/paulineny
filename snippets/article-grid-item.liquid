@@ -65,16 +65,16 @@
 
   {% if blog_page %}
 
-    <p class="f--heading color--{{ section_color }}-text m0 {% unless article.image == blank %}mt2{% endunless %} font-size--ml lg--up--font-size--l">{{ article.title }}</p>
+    <p class="f--heading color--{{ section_color }}-text m0 {% unless article.image == blank %}mt2{% endunless %}">{{ article.title }}</p>
 
     {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
 
     {% if show_author or show_date %}
-    <p class="color--meta m0 mt1 font-size--sm">{% if show_author %}{{ 'blogs.article.by_author' | t: author: article.author }}<br/>{% endif %}{% if show_date %}{{  date }}{% endif %}</p>
+    <p class="color--meta m0 mt1">{% if show_author %}{{ 'blogs.article.by_author' | t: author: article.author }}<br/>{% endif %}{% if show_date %}{{  date }}{% endif %}</p>
     {% endif %}
 
     {% if show_excerpt %}
-    <div class="rte font-size--sm mt2 line-height--3">
+    <div class="rte mt2">
       {% if article.excerpt.size > 0 %}
         {{ article.excerpt }}
       {% else %}
@@ -86,7 +86,7 @@
     {% endif %}
 
     {% if blog.comments_enabled?  %}
-      <ul class=" list--reset font-size--sm t--list-and-grid">
+      <ul class=" list--reset t--list-and-grid">
         {% if blog.comments_enabled? %}
           <li>
             <a href="{{ article.url }}#comments">
@@ -99,7 +99,7 @@
 
     {% if show_tags %}
     {% if article.tags.size > 0 %}
-      <ul class=" list--reset font-size--sm t--list-and-grid">
+      <ul class=" list--reset t--list-and-grid">
         {% if article.tags.size > 0 %}
           {% for tag in article.tags %}
             <li class="inline-block">
@@ -113,8 +113,8 @@
     {% endif %}
 
     {% if show_link %}
-    <p class="font-size--sm t--list-and-grid">
-      <a href="{{ article.url }}" class="inline-block"><span class="align--middle">{{ 'blogs.article.read_more' | t }}</span> <span class="font-size--xxxs align--middle inline-block">{% include 'svg' | icon: 'icon-next' %}</span></a>
+    <p class="t--list-and-grid">
+      <a href="{{ article.url }}" class="inline-block"><span class="align--middle">{{ 'blogs.article.read_more' | t }}</span> <span class="align--middle inline-block">{% include 'svg' | icon: 'icon-next' %}</span></a>
     </p>
     {% endif %}
 

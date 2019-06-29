@@ -4,24 +4,24 @@
   <label for="nav" class="nav-open">
     <span class="block nav-open__default">
       {% if section.settings.use_menu_icon %}
-        <button type="button" class="t--header-navigation site-header__menu-btn btn font-size--m bg--transparent">
+        <button type="button" class="t--header-navigation site-header__menu-btn btn bg--transparent">
           <span class="left">{% include 'svg' | icon: 'icon-menu' %}</span>
         </button>
       {% else %}
-        <a class="t--header-navigation header__link color--{{ section_color }}-text color--header-active font-size--m bg--transparent inline-block pointer">
+        <a class="t--header-navigation header__link color--{{ section_color }}-text color--header-active bg--transparent inline-block pointer">
           <span class="header__link-wrapper">{{ 'general.navigation.menu' | t }}</span>
         </a>
       {% endif %}
     </span>
     <span class="nav-open__close">
-      <span class="inline-block btn font-size--m bg--transparent">
+      <span class="inline-block btn bg--transparent">
         <span class="left">{% include 'svg' | icon: 'icon-close' %}</span>
       </span>
     </span>
   </label>
 
   <div class="no-js__navigation bg--active-background color--active-text fixed top--0 left--0 z4 full p3">
-    <ul class="mobile-navigation f--heading list--reset m0 font-size--xxl">
+    <ul class="mobile-navigation f--heading list--reset m0">
       {% for link in linklists[section.settings.main_linklist].links %}
         {% if link.links != blank %}
           {%- assign child_list_handle = link.title | handleize -%}
@@ -41,25 +41,25 @@
                 {% endif %}
               {% endfor %}
               <div class="px1">
-                <ul class="mobile-navigation__second-level t--header-navigation list--reset m0 font-size--m mxn1 ">
+                <ul class="mobile-navigation__second-level t--header-navigation list--reset m0 mxn1 ">
                   {% for childlink in menus[child_list_handle].links %}
                     {% if childlink.links != blank %}
                       <li class="mobile-nav__item{% if childlink.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
                         {%- assign child_link_handle = link.title | handleize -%}
-                        <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--sublist block p1 line-height--6 color--header-active" data-navigation-toggle="desktop" data-key="{{ child_link_handle }}--{{ forloop.index }}" {% if forloop.first %}data-mobile-active-first-item{% endif %} {% if forloop.last%}data-mobile-active-last-item{% endif %}>
+                        <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--sublist block p1 color--header-active" data-navigation-toggle="desktop" data-key="{{ child_link_handle }}--{{ forloop.index }}" {% if forloop.first %}data-mobile-active-first-item{% endif %} {% if forloop.last%}data-mobile-active-last-item{% endif %}>
                           <span class="align--middle">{{ childlink.title }}</span>
                         </a>
-                        <ul class="mobile-navigation__third-level list--reset t--header-navigation font-size--m mtn1" data-toggle-nav>
+                        <ul class="mobile-navigation__third-level list--reset t--header-navigation mtn1" data-toggle-nav>
                           {% for childchildlink in childlink.links %}
                             <li class="{% if link.active %} mobile-nav__item--active{% endif %} pl2">
-                              <a href="{{ childchildlink.url }}" class="mobile-nav__link p1 block line-height--1 color--header-active">- {{ childchildlink.title | escape }}</a>
+                              <a href="{{ childchildlink.url }}" class="mobile-nav__link p1 block color--header-active">- {{ childchildlink.title | escape }}</a>
                             </li>
                           {% endfor %}
                         </ul>
                       </li>
                     {% else %}
                       <li class="mobile-nav__item{% if childlink.active %} mobile-nav__item--active{% endif %}">
-                        <a href="{{ childlink.url }}" class="mobile-nav__link block p1 line-height--6 color--header-active" {% if forloop.first %}data-mobile-active-first-item{% endif %} {% if forloop.last%}data-mobile-active-last-item{% endif %}>{{ childlink.title }}</a>
+                        <a href="{{ childlink.url }}" class="mobile-nav__link block p1 color--header-active" {% if forloop.first %}data-mobile-active-first-item{% endif %} {% if forloop.last%}data-mobile-active-last-item{% endif %}>{{ childlink.title }}</a>
                       </li>
                     {% endif %}
                   {% endfor %}

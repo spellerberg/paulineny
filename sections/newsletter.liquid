@@ -17,7 +17,7 @@
       <div class="grid__item lg--up--one-quarter">
         <div class="pb3 px2 lg--up--p0">
           {% if section.settings.text != blank %}
-            <div class="line-height--3 {{ global__basic_font_size }}">
+            <div class="{{ global__basic_font_size }}">
               {{ section.settings.text }}
             </div>
           {% endif %}
@@ -52,7 +52,7 @@
           {% endform %}
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>

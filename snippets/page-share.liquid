@@ -27,20 +27,20 @@
   {% endunless %}
 
   <li class="inline-block  align--middle">
-    <a class="color--{{ section_color }}-text share-on-facebook p1 font-size--xxxs" target="_blank" href="//www.facebook.com/sharer.php?u={{ share_link }}" title="{{ 'general.sharing.social_sharing.facebook' | t }}">
+    <a class="color--{{ section_color }}-text share-on-facebook p1" target="_blank" href="//www.facebook.com/sharer.php?u={{ share_link }}" title="{{ 'general.sharing.social_sharing.facebook' | t }}">
       {% include 'svg' | icon: 'icon-facebook' %}
     </a>
   </li>
 
   <li class="inline-block  align--middle">
-    <a class="color--{{ section_color }}-text share-on-twitter  p1 font-size--xxxs" target="_blank" href="//twitter.com/share?text={{ share_title }}&amp;url={{ share_link }}" title="{{ 'general.sharing.social_sharing.twitter' | t }}">
+    <a class="color--{{ section_color }}-text share-on-twitter  p1" target="_blank" href="//twitter.com/share?text={{ share_title }}&amp;url={{ share_link }}" title="{{ 'general.sharing.social_sharing.twitter' | t }}">
       {% include 'svg' | icon: 'icon-twitter' %}
     </a>
   </li>
 
   {% unless share_img == blank %}
     <li class="inline-block align--middle">
-      <a class="color--{{ section_color }}-text share-on-pinterest p1 font-size--xxxs" target="_blank" href="//pinterest.com/pin/create/button/?url={{ share_link }}&amp;media={{ share_img }}&amp;description={{ share_title }}" title="{{ 'general.sharing.social_sharing.pinterest' | t }}">
+      <a class="color--{{ section_color }}-text share-on-pinterest p1" target="_blank" href="//pinterest.com/pin/create/button/?url={{ share_link }}&amp;media={{ share_img }}&amp;description={{ share_title }}" title="{{ 'general.sharing.social_sharing.pinterest' | t }}">
         {% include 'svg' | icon: 'icon-pinterest' %}
       </a>
     </li>

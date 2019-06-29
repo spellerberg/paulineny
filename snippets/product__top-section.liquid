@@ -1,7 +1,7 @@
 <div class="{% if product.images.size > 1 %}lg--up--seven-eighths{% endif %} mx--auto">
   <div class="grid">
     <div class="grid__item md--up--one-half">
-      <div class="product__images relative md--up--text-align--right font-size--0">
+      <div class="product__images relative md--up--text-align--right">
 
         {% assign product_thumbnail_grid = 'md--up--one-sixth' %}
         {% if product.images.size > 1 and feature_product == false %}
@@ -55,7 +55,7 @@
             <div class="md--up--hide">
               <div class="spacer pt1"></div>
               <div class='mobile-flickity__button-container absolute bottom--0 right--0 pt1 pr2'>
-                <button class="btn border--none bg--transparent btn--next color--{{ section_color }}-text hv--{{ section_color }}-accent font-size--sm">{% include 'icon-next' %}</button>
+                <button class="btn border--none bg--transparent btn--next color--{{ section_color }}-text hv--{{ section_color }}-accent">{% include 'icon-next' %}</button>
               </div>
             </div>
           </div>
@@ -178,12 +178,12 @@
               </select>
 
               {% if show_quantity %}
-              <div class="mt2 font-size--m flex items--center">
+              <div class="mt2 flex items--center">
                 <div class="pr2">
                   <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
                 </div>
                 <div class="flex--1 js-qty-wrapper color--{{ section_color }}-text">
-                  <input class="bg--transparent border--{{ section_color }}-text p1 font-size--sm mt1" type="number" id="Quantity" name="quantity" value="1" min="1">
+                  <input class="bg--transparent border--{{ section_color }}-text p1 mt1" type="number" id="Quantity" name="quantity" value="1" min="1">
                 </div>
               </div>
               {% endif %}

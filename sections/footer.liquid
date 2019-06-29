@@ -21,7 +21,7 @@
 
             {% if settings[social_link] != blank %}
               <li class="inline-block">
-                <a class="color--{{ section_color }}-text px1 font-size--xxs mb1 block" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                <a class="color--{{ section_color }}-text px1 mb1 block" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
                   {% include social_icon %}
                   <span class="icon-fallback-text">{{ social }}</span>
                 </a>

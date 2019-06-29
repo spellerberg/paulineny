@@ -13,23 +13,23 @@
 
           <h1 class="{{ global__heading_font_size }}">{{ 'customer.account.title' | t }}</h1>
 
-          <h2 class="font-size--m mt3">{{ 'customer.account.details' | t }}</h2>
+          <h2 class="mt3">{{ 'customer.account.details' | t }}</h2>
 
-          <div class="font-size--sm">
+          <div>
             {{ customer.default_address | format_address }}
             <a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
           </div>
-          
+
           {% include 'account__logout' %}
-          
+
         </div>
         <div class="grid__item lg--up--two-thirds mt3 lg--up--mt0">
 
-              <h2 class="font-size--l">{{ 'customer.orders.title' | t }}</h2>
+              <h2>{{ 'customer.orders.title' | t }}</h2>
 
               {% paginate customer.orders by 10 %}
                 {% if customer.orders.size != 0 %}
-                  <table class="responsive-table full font-size--sm mt2">
+                  <table class="responsive-table full mt2">
                     <thead class="">
                       <tr>
                         <th class="text-align--left pb1">{{ 'customer.orders.order_number' | t }}</th>
@@ -41,7 +41,7 @@
                     </thead>
                     <tbody>
                       {% for order in customer.orders %}
-                        <tr class="responsive-table-row line-height--8">
+                        <tr class="responsive-table-row">
                           <td class="text-align--left" data-label="{{ 'customer.orders.order_number' | t }}"><a class="border-bottom--{{ section_color }}-text" href="{{ order.customer_url }}">{{ order.name }}</a></td>
                           <td class="text-align--left" data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
                           <td class="text-align--left" data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
@@ -68,8 +68,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-

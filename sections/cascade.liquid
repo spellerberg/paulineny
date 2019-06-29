@@ -1,7 +1,7 @@
 {%- assign section_color = section.settings.color_scheme -%}
 {%- include 'global-variables' -%}
 
-{%- assign font_size = 'font-size--sm md--up--font-size--m line-height--3' -%}
+{%- assign font_size = '' -%}
 {%- assign font_size = global__basic_font_size -%}
 
 <section class="cascade {{ global__section_with_padding_class }} color--{{ section_color }}-text bg--{{ section_color }}-background" data-section-type="cascade" data-section-id="{{ section.id }}" data-fade-in="{{ fade_in }}" data-first-item="{{ section.settings.first_item }}">
@@ -219,7 +219,7 @@
                                >
                         </div>
                         <a href="//www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&showinfo=0&controls=1" class="absolute top--0 left--0 full pointer modaal z1" data-modaal-type="video">
-                          <div class="full flex items--center justify--center color--white-text font-size--xl md--up--font-size--xxl lg--up--font-size--xxxxxl">
+                          <div class="full flex items--center justify--center color--white-text">
                             {% include 'svg' | icon: 'icon-play' %}
                           </div>
                         </a>
@@ -242,7 +242,7 @@
                                >
                         </div>
                         <a href="//player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1%color={{ settings.color_primary }}&title=0&byline=0" class="absolute top--0 left--0 full pointer modaal z1" data-modaal-type="video">
-                          <div class="full flex items--center justify--center color--white-text font-size--xl md--up--font-size--xxl lg--up--font-size--xxxxxl">
+                          <div class="full flex items--center justify--center color--white-text">
                             {% include 'svg' | icon: 'icon-play' %}
                           </div>
                         </a>
@@ -258,7 +258,7 @@
                        </div>
                       </div>
                       <a class="absolute top--0 left--0 full pointer z1">
-                        <div class="full flex items--center justify--center color--white font-size--xl md--up--font-size--xxl lg--up--font-size--xxxxxl">
+                        <div class="full flex items--center justify--center color--white">
                           {% include 'svg' | icon: 'icon-play' %}
                         </div>
                       </a>
@@ -286,9 +286,9 @@
                     {% endif %}
                     {% if block.type == 'heading' and block.settings.font_size == 'large' %}
                       {% if block_width_mobile == 'full' %}
-                        {% assign heading_class = 'f--heading font-size--xxxl line-height--8 pm--font-size--xxxxxl pm--line-height--11 wd--font-size--xxxxxxl wd--line-height--13' %}
+                        {% assign heading_class = 'f--heading' %}
                       {% else %}
-                        {% assign heading_class = 'f--heading font-size--xxl line-height--7 pm--font-size--xxxxl pm--line-height--11 wd--font-size--xxxxxxl wd--line-height--13' %}
+                        {% assign heading_class = 'f--heading' %}
                       {% endif %}
                     {% endif %}
                     <h2 class=" m0 {{ heading_class }}">

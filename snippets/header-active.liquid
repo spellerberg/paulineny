@@ -41,9 +41,9 @@
         <form action="/search" method="get" class="input-group search" role="search">
           {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
           <label for="search" class="hide">{{ 'general.search.submit' | t }}</label>
-          <input id="search" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="py1 search__input input-group-field border--none bg--transparent border-bottom--{{ section_color }}-text font-size--xl color--active-text" aria-label="{{ 'general.search.placeholder' | t }}" data-search-input data-desktop-active-first-item>
+          <input id="search" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="py1 search__input input-group-field border--none bg--transparent border-bottom--{{ section_color }}-text color--active-text" aria-label="{{ 'general.search.placeholder' | t }}" data-search-input data-desktop-active-first-item>
           <span class="input-group-btn search-btn">
-            <button type="submit" class="block font-size--xl bg--transparent color--{{ section_color }}-text border--none" data-desktop-active-last-item>
+            <button type="submit" class="block bg--transparent color--{{ section_color }}-text border--none" data-desktop-active-last-item>
               {% include 'svg', icon: 'icon-search' %}
             </button>
           </span>

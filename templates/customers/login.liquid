@@ -57,7 +57,7 @@
 
             <input type="submit" class="block full--w btn border--none mt3 px2 py1 bg--{{ section_color }}-text color--{{ section_color }}-text--overlay lg--up--two-thirds"  value="{{ 'customer.login.sign_in' | t }}">
 
-            <div class="font-size--s mt3">
+            <div class="mt3">
               <a href="/account/register">
                 {{ 'layout.customer.create_account' | t }}
               </a>
@@ -72,7 +72,7 @@
           {% endform %}
 
           <div id="RecoverPasswordForm" class="hide">
-            <h2 class="font-size--l m0">{{ 'customer.recover_password.title' | t }}</h2>
+            <h2 class="m0">{{ 'customer.recover_password.title' | t }}</h2>
             <p class="{{ global__basic_font_size }} mt1 mb3">{{ 'customer.recover_password.subtext' | t }}</p>
 
 
@@ -97,7 +97,7 @@
 
               <input type="submit" class="block full--w btn border--none mt3 px2 py1 bg--{{ section_color }}-text color--{{ section_color }}-text--overlay lg--up--two-thirds"  value="{{ 'customer.recover_password.submit' | t }}">
 
-              <button type="button" id="HideRecoverPasswordLink" class="mt1 border--none bg--transparent font-size--s">
+              <button type="button" id="HideRecoverPasswordLink" class="mt1 border--none bg--transparent">
                 {{ 'customer.recover_password.cancel' | t }}
               </button>
             {% endform %}

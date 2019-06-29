@@ -81,7 +81,7 @@
 
       <div class="max-site-width px2 lg--up--px3">
         <div class="relative">
-          <a class="header__close fixed lg-up--full--w text-align--right top--0 right--0 p2 font-size--m pointer color--active-text hv--active-accent" data-close-header tabindex="0">
+          <a class="header__close fixed lg-up--full--w text-align--right top--0 right--0 p2 pointer color--active-text hv--active-accent" data-close-header tabindex="0">
             {% include 'svg' | icon: 'icon-close' %}
           </a>
         </div>
@@ -89,7 +89,7 @@
 
 
       {% if section.settings.show_announcement %}
-        {% capture class %}block full--w bg--{{ section.settings.announcement_color }}-background color--{{ section.settings.announcement_color }}-text px2 py1  font-size--sm text-align--center {% endcapture %}
+        {% capture class %}block full--w bg--{{ section.settings.announcement_color }}-background color--{{ section.settings.announcement_color }}-text px2 py1 text-align--center {% endcapture %}
         {% if section.settings.home_page_only == false or template.name == 'index' %}
           {% if section.settings.link == blank %}
             <div class="announcement-bar {{ class }}">
@@ -111,13 +111,13 @@
 
 
           <div class="header-table__bookend align--middle text-align--left lg--up--hide md--dn--flex--1-basis-0">
-            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} font-size--m bg--transparent inline-block pointer">
+            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">
               <div class="header__link-wrapper">Info</div>
             </a>
           </div>
 
           <div class="nav__container align--middle text-align--left md--dn--hide lg--up--flex--1 overflow--hidden">
-            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} font-size--m bg--transparent inline-block pointer">
+            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">
               <div class="header__link-wrapper">Info</div>
             </a>
           </div>
@@ -125,12 +125,12 @@
           <div class="header-table__center align--middle text-align--center flex--grow--1  md--dn--flex--1-basis-0 lg--up--flex--grow--0 lg--justify--center lg--items--center">
 
             {% if template.name == 'index' %}
-              <h1 class="header__logo m0 lg--up--px3 {% if section.settings.logo != blank %}font-size--0{% endif %}" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="font-size--xl color--headerlogo color--header-active f--heading hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+              <h1 class="header__logo m0 lg--up--px3" itemscope itemtype="http://schema.org/Organization">
+                <a href="/" itemprop="url" class="color--headerlogo color--header-active f--heading hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </h1>
             {% else %}
-              <div class="header__logo {% unless section.settings.logo != blank %}h1{% else %}font-size--0{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="font-size--xl color--headerlogo color--header-active header-static-color f--heading  site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+              <div class="header__logo {% unless section.settings.logo != blank %}h1{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
+                <a href="/" itemprop="url" class="color--headerlogo color--header-active header-static-color f--heading  site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </div>
             {% endif %}
           </div>
@@ -139,13 +139,13 @@
 
               {% if shop.customer_accounts_enabled %}
                 {% if customer %}
-                <a href="/account" class="t--header-navigation header__link {{ header_underline_link }}  font-size--m bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
+                <a href="/account" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
                   <div class="header__link-wrapper">
                     {{ 'layout.customer.account' | t }}
                   </div>
                 </a>
                 {% else %}
-                <a href="/account/login" class="t--header-navigation header__link {{ header_underline_link }}  font-size--m bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
+                <a href="/account/login" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
                   <div class="header__link-wrapper">
                     {{ 'layout.customer.log_in' | t }}
                   </div>
@@ -154,14 +154,14 @@
               {% endif %}
 
               {% if section.settings.show_search %}
-              <a href="/search"  class="t--header-navigation header__link {{ header_underline_link }} font-size--m bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-active-header-trigger data-active-target="search" data-search-button tabindex="0"  data-top-level-item  aria-haspopup="true" data-search-button>
+              <a href="/search"  class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-active-header-trigger data-active-target="search" data-search-button tabindex="0"  data-top-level-item  aria-haspopup="true" data-search-button>
                 <div class="header__link-wrapper">
                   {{ 'general.search.submit' | t }}
                 </div>
               </a>
               {% endif %}
 
-              <a href="/cart" id="CartLink" class="t--header-navigation header__link {{ header_underline_link }} font-size--m bg--transparent inline-block pointer m0 px1" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">
+              <a href="/cart" id="CartLink" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer m0 px1" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">
                 <div class="header__link-wrapper">
                   {% if section.settings.show_cart_icon %}
                   <span class="cart__icon">{% include 'svg' | icon: 'icon-cart' %}</span>
@@ -205,7 +205,7 @@
             <div class="paulinelarge">Pauline</div>
 
           <a class="absolute pointer full top--0 left--0 flex items--end justify--center pb2"  data-banner-scroll>
-            <button class="btn border--none border--none bg--transparent color--{{ section_color }}-text hv--primary-accent font-size--l">{% include 'icon-arrow-down' %}</button>
+            <button class="btn border--none border--none bg--transparent color--{{ section_color }}-text hv--primary-accent">{% include 'icon-arrow-down' %}</button>
           </a>
         </div>
       </div>
@@ -218,7 +218,7 @@
           {{ 'lifestyle-1' | placeholder_svg_tag }}
         </div>
         <a class="absolute pointer full top--0 left--0 flex items--end justify--center pb2"  data-banner-scroll>
-          <button class="btn border--none border--none bg--transparent color--{{ section_color }}-text hv--{{ section_color }}-accent font-size--l">{% include 'icon-arrow-down' %}</button>
+          <button class="btn border--none border--none bg--transparent color--{{ section_color }}-text hv--{{ section_color }}-accent">{% include 'icon-arrow-down' %}</button>
         </a>
       </div>
     {% endif %}

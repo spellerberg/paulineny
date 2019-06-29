@@ -60,10 +60,10 @@
           {% if on_sale or sold_out %}
             <div class="absolute top--0 right--0 pt2 pr2 z2">
               {% if on_sale and sold_out != true %}
-                <div class="product-grid-on-sale p1 font-size--s bg--{{ section_color }}-accent color--{{ section_color }}-accent--overlay">{{ 'products.product.on_sale' | t }}</div>
+                <div class="product-grid-on-sale p1 bg--{{ section_color }}-accent color--{{ section_color }}-accent--overlay">{{ 'products.product.on_sale' | t }}</div>
               {% endif %}
               {% if sold_out %}
-                <div class="{% if on_sale %}mt1{% endif %} product-grid-on-sale p1 font-size--s bg--{{ section_color }}-text color--{{ section_color }}-text--overlay">{{ 'products.product.sold_out' | t }}</div>
+                <div class="{% if on_sale %}mt1{% endif %} product-grid-on-sale p1 bg--{{ section_color }}-text color--{{ section_color }}-text--overlay">{{ 'products.product.sold_out' | t }}</div>
               {% endif %}
             </div>
           {% endif %}
@@ -91,7 +91,7 @@
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="product__img">
       </noscript>
 
-      {% if product.images.size > 1 and settings.products_show_second_image_on_hover %} 
+      {% if product.images.size > 1 and settings.products_show_second_image_on_hover %}
         {% assign hover_image = product.images[1] %}
         <div class="product-item-hover absolute top--0 right--0 bottom--0 left--0 z1 lazyload bg-cover"
               data-bgset="{% include 'bgset', image: hover_image %}"
@@ -100,7 +100,7 @@
               style="background-image: url({{ hover_image | img_url: '300x300' }});">
         </div>
       {% endif %}
-      
+
     </div>
   {% endunless %}
   <p class="color--{{ section_color }}-text m0 mt2 {{ global__basic_font_size }}">{{ product.title }}</p>

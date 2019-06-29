@@ -26,7 +26,7 @@
                       {{ 'cart.label.quantity' | t }}
                     </div>
                   </div>
-                  <div class="table-cell two-thirds text-align--right font-size--m">
+                  <div class="table-cell two-thirds text-align--right">
                     {{ 'cart.label.total' | t }}
                   </div>
                 </div>
@@ -36,7 +36,7 @@
           </div>
 
           {% for item in cart.items %}
-            <div class="cart__row font-size--sm mt3">
+            <div class="cart__row mt3">
               <div class="grid relative">
                 <div class="grid__item lg--up--three-fifths">
                   <div class="grid grid--full ">
@@ -52,9 +52,9 @@
 
                         <div class="table full--w">
                           <div class="table-cell two-thirds">
-                            <a class="f--heading font-size--m md--up--font-size--l" href="{{ item.url }}">{{ item.product.title }}</a>
+                            <a class="f--heading" href="{{ item.url }}">{{ item.product.title }}</a>
                           </div>
-                          <div class="table-cell text-align--right font-size--m one-third md--up--hide">
+                          <div class="table-cell text-align--right one-third md--up--hide">
                             {{ item.line_price | money }}
                           </div>
                         </div>
@@ -115,7 +115,7 @@
                                aria-label="{{ 'cart.general.item_quantity' | t }}">
                       </div>
                     </div>
-                    <div class="table-cell two-thirds text-align--right font-size--m sm--hide ">
+                    <div class="table-cell two-thirds text-align--right sm--hide ">
                       {{ item.line_price | money }}
                     </div>
                   </div>
@@ -132,15 +132,15 @@
               <div class="grid__item md--up--one-half">
                 <div class="md--up--pr4">
                   {% if settings.cart_notes_enable %}
-                    <label class="inline-block mb1 font-size--sm" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+                    <label class="inline-block mb1" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
                     <textarea class="bg--transparent border--main full--w" name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
                   {% endif %}
                 </div>
               </div>
 
               <div class="grid__item md--up--one-half md--up--text-align--right mt3 md--up--mt0 {% unless settings.cart_notes_enable %}right{% endunless %}">
-                <p class="font-size--xs md--up--font-size--s m0">{{ 'cart.general.shipping_at_checkout' | t }}</p>
-                <div class="table full--w font-size--m mt1">
+                <p class="m0">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+                <div class="table full--w mt1">
                   <div class="table-cell text-align--left md--up--text-align--right">
                     <p>{{ 'cart.general.subtotal' | t }}</p>
                   </div>

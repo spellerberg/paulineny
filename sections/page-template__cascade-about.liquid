@@ -179,7 +179,7 @@
                             <h2 class=" m0 {{ heading_class }} color--{{ local_color }}-text">{{ heading }}</h2>
                             {% endif %}
                             {% if cta_text != blank %}
-                              <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline f--accent color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
+                              <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
                                 {{ cta_text }}
                               </p>
                             {% endif %}
@@ -284,13 +284,6 @@
                     {% else %}
                       {% assign heading_class = heading_fontsize__mobile_half %}
                     {% endif %}
-                    {% if block.type == 'heading' and block.settings.font_size == 'large' %}
-                      {% if block_width_mobile == 'full' %}
-                        {% assign heading_class = 'f--heading' %}
-                      {% else %}
-                        {% assign heading_class = 'f--heading' %}
-                      {% endif %}
-                    {% endif %}
                     <h2 class=" m0 {{ heading_class }}">
                       {{ block.settings.heading }}
                     </h2>
@@ -367,7 +360,7 @@
                               {% endif %}
                               <h2 class=" m0 {{ heading_class }} color--{{ local_color }}-text">{{ collection.title }}</h2>
                               {% if block.settings.show_collection_link %}
-                                <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline f--accent color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
+                                <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
                                   {{ block.settings.cta_text }}
                                 </p>
                               {% endif %}

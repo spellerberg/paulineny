@@ -116,10 +116,10 @@
           {%- if feature_product -%}
           <a class="color--{{ section_color }}-text" href="{{ product.url }}"><h2 class="{{ global__heading_font_size }} m0 mb1">{{ product.title }}</h2></a>
           {%- else -%}
-          <h1 class="f--heading {{ global__heading_font_size }} m0 mb1">{{ product.title }}</h1>
+          <h1 class="{{ global__heading_font_size }} m0 mb1">{{ product.title }}</h1>
           {%- endif -%}
 
-          <div class="f--heading {{ global__heading_font_size }} m0 mb1" data-price-wrapper>
+          <div class="{{ global__heading_font_size }} m0 mb1" data-price-wrapper>
             <span {% if product.compare_at_price_max > product.price %}class="color--{{ section_color }}-accent"{% endif %} data-product-price>
               {{ current_variant.price | money }}
             </span>

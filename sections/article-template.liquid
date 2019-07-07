@@ -153,7 +153,7 @@
           {% if blog.comments_enabled? %}
           <div class="comments lg--up--three-quarters mt3 {{ global__basic_font_size }}">
 
-            <h3 class="f--heading">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
+            <h3>{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
 
             {% paginate article.comments by 5 %}
             <div id="comments">
@@ -206,7 +206,7 @@
             {% endpaginate %}
 
             {% form 'new_comment', article %}
-              <h3 class="f--main {{ global__basic_font_size }} mt3">{{ 'blogs.comments.title' | t }}</h3>
+              <h3 class="{{ global__basic_font_size }} mt3">{{ 'blogs.comments.title' | t }}</h3>
 
               {{ form.errors | default_errors }}
 

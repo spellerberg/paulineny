@@ -27,7 +27,7 @@
 
             <div id="AddressNewForm" class="hide pb4">
               {% form 'customer_address', customer.new_address %}
-              <h2 class="f--heading">{{ 'customer.addresses.add_new' | t }}</h2>
+              <h2>{{ 'customer.addresses.add_new' | t }}</h2>
 
               {% if form.errors %}
                     {{ form.errors | default_errors }}
@@ -36,49 +36,49 @@
               <div class="grid">
 
               <div class="grid__item one-half sm--one-whole">
-                <label for="AddressFirstNameNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.first_name' | t }}</label>
+                <label for="AddressFirstNameNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.first_name' | t }}</label>
                 <input type="text" id="AddressFirstNameNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words" placeholder="{{ 'customer.addresses.first_name' | t }}">
               </div>
 
               <div class="grid__item one-half sm--one-whole">
-                <label for="AddressLastNameNew"  class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.last_name' | t }}</label>
+                <label for="AddressLastNameNew"  class="hidden-label block mt2 mb1">{{ 'customer.addresses.last_name' | t }}</label>
                 <input type="text" id="AddressLastNameNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words" placeholder="{{ 'customer.addresses.last_name' | t }}">
               </div>
 
             </div>
 
-            <label for="AddressCompanyNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.company' | t }}</label>
+            <label for="AddressCompanyNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.company' | t }}</label>
             <input type="text" id="AddressCompanyNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[company]" value="{{ form.company }}" autocapitalize="words" placeholder="{{ 'customer.addresses.company' | t }}">
 
-            <label for="AddressAddress1New" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.address1' | t }}</label>
+            <label for="AddressAddress1New" class="hidden-label block mt2 mb1">{{ 'customer.addresses.address1' | t }}</label>
             <input type="text" id="AddressAddress1New" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words" placeholder="{{ 'customer.addresses.address1' | t }}">
 
-            <label for="AddressAddress2New" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.address2' | t }}</label>
+            <label for="AddressAddress2New" class="hidden-label block mt2 mb1">{{ 'customer.addresses.address2' | t }}</label>
             <input type="text" id="AddressAddress2New" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words" placeholder="{{ 'customer.addresses.address2' | t }}">
 
             <div class="grid">
               <div class="grid__item lg--one-half address__city-input">
-                <label for="AddressCityNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.city' | t }}</label>
+                <label for="AddressCityNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.city' | t }}</label>
                 <input type="text" id="AddressCityNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[city]" value="{{ form.city }}" autocapitalize="words" placeholder="{{ 'customer.addresses.city' | t }}">
               </div>
 
               <div class="grid__item lg--one-half">
-                <label for="AddressCountryNew" class="f--main mt2 mb1 block">{{ 'customer.addresses.country' | t }}</label>
+                <label for="AddressCountryNew" class="mt2 mb1 block">{{ 'customer.addresses.country' | t }}</label>
                 <select id="AddressCountryNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[country]" data-default="{{ form.country }}" placeholder="{{ 'customer.addresses.country' | t }}">{{ country_option_tags }}</select>
               </div>
 
               <div class="grid__item" id="AddressProvinceContainerNew" style="display:none">
-                <label for="AddressProvinceNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.province' | t }}</label>
+                <label for="AddressProvinceNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.province' | t }}</label>
                 <select id="AddressProvinceNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[province]" data-default="{{ form.province }}" placeholder="{{ 'customer.addresses.province' | t }}"></select>
               </div>
 
               <div class="grid__item lg--one-half">
-                <label for="AddressZipNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.zip' | t }}</label>
+                <label for="AddressZipNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.zip' | t }}</label>
                 <input type="text" id="AddressZipNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" placeholder="{{ 'customer.addresses.zip' | t }}">
               </div>
 
               <div class="grid__item lg--one-half">
-                <label for="AddressPhoneNew" class="hidden-label f--main block mt2 mb1">{{ 'customer.addresses.phone' | t }}</label>
+                <label for="AddressPhoneNew" class="hidden-label block mt2 mb1">{{ 'customer.addresses.phone' | t }}</label>
                 <input type="tel" id="AddressPhoneNew" class="full--w border--{{ section_color }}-text bg--transparent p1" name="address[phone]" value="{{ form.phone }}" placeholder="{{ 'customer.addresses.phone' | t }}">
               </div>
             </div>
@@ -97,7 +97,7 @@
 
             </div>
 
-            <h2 class="f--heading m0 mb2">{{ 'customer.addresses.title' | t }}</h2>
+            <h2 class="m0 mb2">{{ 'customer.addresses.title' | t }}</h2>
 
             {% for address in customer.addresses %}
 
@@ -120,10 +120,10 @@
                 <div id="EditAddress_{{ address.id }}" class="form-vertical hide pb3">
 
                   {% form 'customer_address', address %}
-                  <h4 class="f--heading my2">{{ 'customer.addresses.edit_address' | t }}</h4>
+                  <h4 class="my2">{{ 'customer.addresses.edit_address' | t }}</h4>
                   <div class="grid">
                      <div class="grid__item one-half sm--one-whole">
-                        <label for="AddressFirstName_{{ form.id }}" class="f--main mt2 mb1 block">
+                        <label for="AddressFirstName_{{ form.id }}" class="mt2 mb1 block">
                         {{ 'customer.addresses.first_name' | t }}
                         </label>
                         <input type="text"
@@ -134,7 +134,7 @@
                            autocapitalize="words">
                      </div>
                      <div class="grid__item one-half sm--one-whole">
-                        <label for="AddressLastName_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressLastName_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.last_name' | t }}
                         </label>
                         <input type="text"
@@ -145,7 +145,7 @@
                            autocapitalize="words">
                      </div>
                   </div>
-                  <label for="AddressCompany_{{ form.id }}"  class="f--main mt2 mb1 block">
+                  <label for="AddressCompany_{{ form.id }}"  class="mt2 mb1 block">
                   {{ 'customer.addresses.company' | t }}
                   </label>
                   <input type="text"
@@ -154,7 +154,7 @@
                      id="AddressCompany_{{ form.id }}"
                      value="{{ form.company }}"
                      autocapitalize="words">
-                  <label for="AddressAddress1_{{ form.id }}"  class="f--main mt2 mb1 block">
+                  <label for="AddressAddress1_{{ form.id }}"  class="mt2 mb1 block">
                   {{ 'customer.addresses.address1' | t }}
                   </label>
                   <input type="text"
@@ -163,7 +163,7 @@
                      id="AddressAddress1_{{ form.id }}"
                      value="{{ form.address1 }}"
                      autocapitalize="words">
-                  <label for="AddressAddress2_{{ form.id }}"  class="f--main mt2 mb1 block">
+                  <label for="AddressAddress2_{{ form.id }}"  class="mt2 mb1 block">
                   {{ 'customer.addresses.address2' | t }}
                   </label>
                   <input type="text"
@@ -174,7 +174,7 @@
                      autocapitalize="words">
                   <div class="grid">
                      <div class="grid__item lg--one-half address__city-input">
-                        <label for="AddressCity_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressCity_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.city' | t }}
                         </label>
                         <input type="text"
@@ -185,7 +185,7 @@
                            autocapitalize="words">
                      </div>
                      <div class="grid__item lg--one-half">
-                        <label for="AddressCountry_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressCountry_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.country' | t }}
                         </label>
                         <select
@@ -198,7 +198,7 @@
                         </select>
                      </div>
                      <div class="grid__item" id="AddressProvinceContainer_{{ form.id }}" style="display:none">
-                        <label for="AddressProvince_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressProvince_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.province' | t }}
                         </label>
                         <select
@@ -209,7 +209,7 @@
                         </select>
                      </div>
                      <div class="grid__item lg--one-half">
-                        <label for="AddressZip_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressZip_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.zip' | t }}
                         </label>
                         <input type="text"
@@ -220,7 +220,7 @@
                            autocapitalize="characters">
                      </div>
                      <div class="grid__item lg--one-half">
-                        <label for="AddressPhone_{{ form.id }}"  class="f--main mt2 mb1 block">
+                        <label for="AddressPhone_{{ form.id }}"  class="mt2 mb1 block">
                         {{ 'customer.addresses.phone' | t }}
                         </label>
                         <input type="tel"

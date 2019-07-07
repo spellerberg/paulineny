@@ -126,11 +126,11 @@
 
             {% if template.name == 'index' %}
               <h1 class="header__logo m0 lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="color--headerlogo color--header-active f--heading hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+                <a href="/" itemprop="url" class="color--headerlogo color--header-active hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </h1>
             {% else %}
               <div class="header__logo {% unless section.settings.logo != blank %}h1{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="color--headerlogo color--header-active header-static-color f--heading  site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+                <a href="/" itemprop="url" class="color--headerlogo color--header-active header-static-color site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </div>
             {% endif %}
           </div>

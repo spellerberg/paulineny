@@ -65,7 +65,7 @@
 
   {% if blog_page %}
 
-    <p class="f--heading color--{{ section_color }}-text m0 {% unless article.image == blank %}mt2{% endunless %}">{{ article.title }}</p>
+    <p class="color--{{ section_color }}-text m0 {% unless article.image == blank %}mt2{% endunless %}">{{ article.title }}</p>
 
     {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
 

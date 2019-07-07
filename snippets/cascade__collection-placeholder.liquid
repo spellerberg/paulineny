@@ -21,7 +21,7 @@
                 {{ 'homepage.onboarding.collection_title' | t }}
               </h2>
               {% if block.settings.show_collection_link %}
-                <p class="{% if block.settings.block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline f--accent color--{{ local_color }}-text border-bottom--{{ local_color }}-text" href="" target="_blank" >
+                <p class="{% if block.settings.block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline local_color }}-text border-bottom--{{ local_color }}-text" href="" target="_blank" >
                   {{ block.settings.cta_text }}
                 </p>
               {% endif %}
@@ -36,7 +36,7 @@
         <div class="table full">
           <div class="table-cell text-align--center align--middle">
             <div class="inline-block  align--middle">
-            
+
               {% if block.settings.block_width_mobile == 'full' %}
                 {% assign heading_class = heading_fontsize__mobile_full %}
               {% else %}
@@ -46,7 +46,7 @@
                 {{ 'homepage.onboarding.collection_title' | t }}
               </h2>
               {% if block.settings.show_collection_link %}
-                <p class="{% if block.settings.block_width_mobile == 'half' %}sm--hide{% endif %} mt1 inline-block {{ font_size }} link-underline f--accent color--{{ local_color }}-text border-bottom--{{ local_color }}-text" href="" target="_blank" >
+                <p class="{% if block.settings.block_width_mobile == 'half' %}sm--hide{% endif %} mt1 inline-block {{ font_size }} link-underline color--{{ local_color }}-text border-bottom--{{ local_color }}-text" href="" target="_blank" >
                   {{ block.settings.cta_text }}
                 </p>
               {% endif %}

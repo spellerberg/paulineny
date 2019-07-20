@@ -3646,6 +3646,6 @@ $(document).ready(function() {
   theme.productGridItems();
 
   var siteHeaderHeight = $('.site-header').outerHeight();
-  $("#MainContent").css('padding-top',siteHeaderHeight+'px');
+  // $("#MainContent").css('padding-top',siteHeaderHeight+'px');
 
 });

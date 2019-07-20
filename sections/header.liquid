@@ -109,67 +109,29 @@
 
         <div class="header-table flex items--center justify--between full--w px2 py3 max-site-width lg--up--px3  lg--up--relative">
 
-
           <div class="header-table__bookend align--middle text-align--left lg--up--hide md--dn--flex--1-basis-0">
-            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">
-              <div class="header__link-wrapper">Info</div>
-            </a>
+            <a data-text="Info" href="/pages/info" class="paulineinfolink t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">Info</a>
           </div>
 
           <div class="nav__container align--middle text-align--left md--dn--hide lg--up--flex--1 overflow--hidden">
-            <a href="/pages/info" class="t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">
-              <div class="header__link-wrapper">Info</div>
-            </a>
+            <a data-text="Info" href="/pages/info" class="paulineinfolink t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">Info</a>
           </div>
 
           <div class="header-table__center align--middle text-align--center flex--grow--1  md--dn--flex--1-basis-0 lg--up--flex--grow--0 lg--justify--center lg--items--center">
 
             {% if template.name == 'index' %}
               <h1 class="header__logo m0 lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="color--headerlogo color--header-active hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+                <a href="/" data-text="Pauline" itemprop="url" class="color--headerlogo color--header-active hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </h1>
             {% else %}
               <div class="header__logo {% unless section.settings.logo != blank %}h1{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" itemprop="url" class="color--headerlogo color--header-active header-static-color site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
+                <a href="/" data-text="Pauline" itemprop="url" class="color--headerlogo color--header-active header-static-color site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
               </div>
             {% endif %}
           </div>
           <div class="header__meta header-table__bookend align--middle text-align--right lg--up--flex--1 md--dn--flex--1-basis-0 lg--up--justify--end no-wrap">
             <div class="mxn1">
-
-              {% if shop.customer_accounts_enabled %}
-                {% if customer %}
-                <a href="/account" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
-                  <div class="header__link-wrapper">
-                    {{ 'layout.customer.account' | t }}
-                  </div>
-                </a>
-                {% else %}
-                <a href="/account/login" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-top-level-item>
-                  <div class="header__link-wrapper">
-                    {{ 'layout.customer.log_in' | t }}
-                  </div>
-                </a>
-                {% endif %}
-              {% endif %}
-
-              {% if section.settings.show_search %}
-              <a href="/search"  class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer align--middle px1 md--dn--hide" data-active-header-trigger data-active-target="search" data-search-button tabindex="0"  data-top-level-item  aria-haspopup="true" data-search-button>
-                <div class="header__link-wrapper">
-                  {{ 'general.search.submit' | t }}
-                </div>
-              </a>
-              {% endif %}
-
-              <a href="/cart" id="CartLink" class="t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer m0 px1" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">
-                <div class="header__link-wrapper">
-                  {% if section.settings.show_cart_icon %}
-                  <span class="cart__icon">{% include 'svg' | icon: 'icon-cart' %}</span>
-                  {% else %}
-                  {{ 'layout.cart.title' | t }}
-                  {% endif %}
-                </div>
-              </a>
+              <a data-text="Cart" href="/cart" id="CartLink" class="paulinecartlink t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer m0" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">Cart</a>
             </div>
           </div>
         </div>

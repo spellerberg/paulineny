@@ -110,16 +110,16 @@
     </div>
 
     <div class="grid__item md--up--one-half">
-      <div class="{% unless description_under_add_to_cart %}wd--pt3 lg--up--pl3 wd--pl4 {% endunless %} ">
-        <div class="px2 mt3 max-width--1 md--up--pt0 lg--up--px3">
+      <div class="{% unless description_under_add_to_cart %}wd--pt3 lg--up--pl3 wd--pl4 {% endunless %}">
+        <div class="px2 max-width--1 md--up--pt0 lg--up--px3">
 
           {%- if feature_product -%}
-          <a class="color--{{ section_color }}-text" href="{{ product.url }}"><h2 class="{{ global__heading_font_size }} m0 mb1">{{ product.title }}</h2></a>
+          <a class="color--{{ section_color }}-text" href="{{ product.url }}"><h2 class="{{ global__heading_font_size }}">{{ product.title }}</h2></a>
           {%- else -%}
-          <h1 class="{{ global__heading_font_size }} m0 mb1">{{ product.title }}</h1>
+          <h1 class="{{ global__heading_font_size }}">{{ product.title }}</h1>
           {%- endif -%}
 
-          <div class="{{ global__heading_font_size }} m0 mb1" data-price-wrapper>
+          <p class="{{ global__heading_font_size }}" data-price-wrapper>
             <span {% if product.compare_at_price_max > product.price %}class="color--{{ section_color }}-accent"{% endif %} data-product-price>
               {{ current_variant.price | money }}
             </span>
@@ -131,13 +131,11 @@
                 {% endif %}
               </s>
             {% endif %}
-          </div>
+          </p>
 
           {% if product.description != empty or product.description != '' %}
-              <div class="mt3 rte {{ global__basic_font_size }}" data-product-description>
-                {{ product.description }}
-              </div>
-            {% endif %}
+            <p class="rte" data-product-description>{{ product.description }}</p>
+          {% endif %}
 
           <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">

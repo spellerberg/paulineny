@@ -79,12 +79,16 @@
                 {% if block.settings.image %}
                   {% assign image = block.settings.image %}
                   {% assign image_ratio = block.settings.image.aspect_ratio  | plus: 0 %}
+                  {% assign cta_url = block.settings.cta_url %}
                   <div class="image-holder {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                     {% capture img_id %}ItemImage-{{ image.id }}{% endcapture %}
                     {% capture wrapper_id %}ItemImageWrapper-{{ image.id }}{% endcapture %}
                     {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                     <div id="{{ wrapper_id }}" class="resp-img-wrapper js">
                       <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+
+                        {% if cta_url != blank %}<a href="{{ cta_url }}">{% endif %}
+
                         <img id="{{ img_id }}"
                              class="resp-img lazyload"
                              src="{{ image | img_url: '300x' }}"
@@ -99,6 +103,9 @@
                               width="{{ image.width }}"
                               height="{{ image.height }}"
                               alt="{{ image.alt | escape }}">
+
+                         {% if cta_url != blank %}</a>{% endif %}
+
                       </div>
                     </div>
                     <noscript>
@@ -176,7 +183,7 @@
                               {% assign heading_class = heading_fontsize__mobile_half %}
                             {% endif %}
                             {% if heading != blank %}
-                            <h2 class=" m0 {{ heading_class }} color--{{ local_color }}-text">{{ heading }}</h2>
+                            <h2 class="yo1 m0 {{ heading_class }} color--{{ local_color }}-text">{{ heading }}</h2>
                             {% endif %}
                             {% if cta_text != blank %}
                               <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
@@ -284,8 +291,11 @@
                     {% else %}
                       {% assign heading_class = heading_fontsize__mobile_half %}
                     {% endif %}
-                    <h2 class=" m0 {{ heading_class }}">
+                    <h2 class="yo2 m0 {{ heading_class }}">
+                      {% assign cta_url = block.settings.cta_url %}
+                      {% if cta_url != blank %}<a href="{{ cta_url }}">{% endif %}
                       {{ block.settings.heading }}
+                      {% if cta_url != blank %}</a>{% endif %}
                     </h2>
                   {% endif %}
                   {% if block.settings.rich_text != blank  %}
@@ -358,7 +368,7 @@
                               {% else %}
                                 {% assign heading_class = heading_fontsize__mobile_half %}
                               {% endif %}
-                              <h2 class=" m0 {{ heading_class }} color--{{ local_color }}-text">{{ collection.title }}</h2>
+                              <h2 class="yo3 m0 {{ heading_class }} color--{{ local_color }}-text">{{ collection.title }}</h2>
                               {% if block.settings.show_collection_link %}
                                 <p class="{% if block_width_mobile == 'half' %}sm--hide{% endif %} m0 lg--up--mt1 inline-block {{ font_size }} link-underline color--{{ local_color }}-text border-bottom--{{ local_color }}-text hv--{{ local_color }}-accent hv--border-bottom--{{ local_color }}-accent" href="" target="_blank" >
                                   {{ block.settings.cta_text }}
@@ -430,7 +440,7 @@
                           {% else %}
                             {% assign heading_class = heading_fontsize__mobile_half %}
                           {% endif %}
-                          <h2 class=" m0 {{ heading_class }} {% if article.image %}mt2 pm--mt3{% endif %}">
+                          <h2 class="yo4 m0 {{ heading_class }} {% if article.image %}mt2 pm--mt3{% endif %}">
                             {{ article.title }}
                           </h2>
 
@@ -585,6 +595,15 @@
               { "value": "full", "label": "Full width"}
             ],
             "label": "Desktop"
+          },
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "Link"
           }
       ]
     },
@@ -716,7 +735,16 @@
              { "value": "full", "label": "Full width"}
            ],
            "label": "Desktop"
-         }
+         },
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "Link"
+          }
       ]
     },
     {

@@ -4,16 +4,6 @@
 
 {% include 'header__banner-color' %}
 
-<style>
-  {%- if section.settings.logo != blank -%}
-    .site-header__logo-image {
-      max-width: {{ section.settings.logo_max_width }}px;
-    }
-  {%- endif -%}
-
-
-</style>
-
 {%- assign feature_image_placeholder = false -%}
 {% if section.settings.show_banner %}
   {%- if  template.name == 'index' -%}
@@ -107,35 +97,11 @@
 
       <div class="header__shifter full--w"></div>
 
-        <div class="header-table flex items--center justify--between full--w px2 py3 max-site-width lg--up--px3  lg--up--relative">
-
-          <div class="header-table__bookend align--middle text-align--left lg--up--hide md--dn--flex--1-basis-0">
-            <a data-text="Info" href="/pages/info" class="paulineinfolink t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">Info</a>
-          </div>
-
-          <div class="nav__container align--middle text-align--left md--dn--hide lg--up--flex--1 overflow--hidden">
-            <a data-text="Info" href="/pages/info" class="paulineinfolink t--header-navigation {{ header_underline_link }} bg--transparent inline-block pointer">Info</a>
-          </div>
-
-          <div class="header-table__center align--middle text-align--center flex--grow--1  md--dn--flex--1-basis-0 lg--up--flex--grow--0 lg--justify--center lg--items--center">
-
-            {% if template.name == 'index' %}
-              <h1 class="header__logo m0 lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" data-text="Pauline" itemprop="url" class="color--headerlogo color--header-active hidden site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
-              </h1>
-            {% else %}
-              <div class="header__logo {% unless section.settings.logo != blank %}h1{% endunless %} m0  lg--up--px3" itemscope itemtype="http://schema.org/Organization">
-                <a href="/" data-text="Pauline" itemprop="url" class="color--headerlogo color--header-active header-static-color site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">Pauline</a>
-              </div>
-            {% endif %}
-          </div>
-          <div class="header__meta header-table__bookend align--middle text-align--right lg--up--flex--1 md--dn--flex--1-basis-0 lg--up--justify--end no-wrap">
-            <div class="mxn1">
-              <a data-text="Cart" href="/cart" id="CartLink" class="paulinecartlink t--header-navigation header__link {{ header_underline_link }} bg--transparent inline-block pointer m0" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">Cart</a>
-            </div>
-          </div>
-        </div>
-    </div>
+      <div class="header-table paulineheader">
+        <a href="/" data-text="Pauline" itemprop="url" class="paulineheaderitem paulinesitelogo color--headerlogo color--header-active {% if template.name == 'index' %}hidden{% endif %}">Pauline</a>
+        <a data-text="Info" href="/pages/info" class="paulineheaderitem paulineinfolink">Info</a>
+        <a data-text="Cart" href="/cart" id="CartLink" class="paulineheaderitem paulinecartlink" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">Cart</a>
+      </div>
 
     {% include 'header-active' %}
 

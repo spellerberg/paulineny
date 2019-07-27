@@ -1606,15 +1606,7 @@ theme.Header = (function() {
 
       var item = $(this.watchItem);
 
-      $('.color--header-active').removeClass('header-static-color');
-
-      var dofade = true;
-  		$('.color--header-active').one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(event) {
-  			if ( dofade ) {
-          $('.color--header-active').addClass('hidden');
-  				dofade = false;
-  			}
-  		});
+      $('.color--header-active').fadeOut(200);
 
       $('.site-header').removeClass('black');
 
@@ -1628,8 +1620,7 @@ theme.Header = (function() {
 
       $header.addClass('stuck');
 
-      $('.color--header-active').removeClass('hidden');
-      $('.color--header-active').addClass('header-static-color');
+      $('.color--header-active').fadeIn(200);
 
       $('.site-header').addClass('black');
 

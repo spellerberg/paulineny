@@ -146,6 +146,9 @@ button { color: inherit; margin: 0; overflow: visible; -webkit-appearance: butto
 button::-moz-focus-inner { border: 0; padding: 0 }
 button[disabled] { cursor: default }
 
+button.ajaxcart__qty-adjust { transition: color 0.125s linear; }
+button.ajaxcart__qty-adjust:hover { color: red; }
+
 optgroup { font-weight: 700; color: inherit; font: inherit; margin: 0 }
 
 textarea { color: inherit; margin: 0; overflow: auto; -webkit-font-smoothing: antialiased; text-size-adjust: 100%; font-size: 16px; line-height: 1.6; font-family: "PrismasetSolid", sans-serif; color: #fff; font-weight: 400; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%;  touch-action: manipulation; max-width: 100%; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; -webkit-border-radius: 0; min-height: 100px }
@@ -1906,7 +1909,6 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 .site-header__menu-btn svg { vertical-align: -10px }
 
 .site-header { background-color: transparent; z-index: 10; transition: background-color 0.2s ease-in-out }
-.header__main { font-family: "PrismasetOne", sans-serif; font-weight: 400; font-size: 4rem; }
 
 .header-table__center { padding-bottom: 0.3rem }
 
@@ -1914,7 +1916,18 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 
 .site-nav__svg { padding-bottom: 0.1rem }
 
-.cart__icon { margin-right: -0.3rem }
+
+.paulineheader { display: flex; padding: 1rem 2.5rem; font-family: "PrismasetOne", sans-serif; font-weight: 400; font-size: 4rem; }
+
+.paulineheaderitem { position: relative; flex: 1 1 0; }
+.paulineheaderitem::after,
+  .paulineheaderitem::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
+.paulineheaderitem:hover::after { top: -.27em }
+.paulineheaderitem:hover::before { top: .27em }
+
+.paulinesitelogo { text-align: center; }
+.paulineinfolink { text-align: left; order: -1; }
+.paulinecartlink { text-align: right; }
 
 .header__active-overlay { display: none }
 
@@ -2036,10 +2049,6 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 .site-header.black { background: #000 }
 .site-header.active .header-table { display: none }
 
-.color--headerlogo { color: transparent }
-.color--headerlogo.hidden { }
-.color--headerlogo.header-static-color { color: #fff }
-
 .paulinelarge { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; font-family: "PrismasetOne", sans-serif; font-weight: 400; font-size: 15vw; line-height: 0 }
 
 .header-table { padding: 1rem 2.5rem }
@@ -2064,27 +2073,6 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 .paulineaddbutton:hover::before { top: -12px }
 
 .cart--empty-message { margin-top: 45vh }
-
-
-.paulineinfolink { position: relative; }
-.paulineinfolink::after,
-  .paulineinfolink::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
-.paulineinfolink:hover::after { top: -.27em }
-.paulineinfolink:hover::before { top: .27em }
-
-
-.paulinecartlink { position: relative; }
-.paulinecartlink::after,
-  .paulinecartlink::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
-.paulinecartlink:hover::after { top: -.27em }
-.paulinecartlink:hover::before { top: .27em }
-
-
-  .site-logo { position: relative; }
-  .site-logo::after,
-    .site-logo::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
-  .site-logo:hover::after { top: -.27em }
-  .site-logo:hover::before { top: .27em }
 
 
 /* Repetitive */

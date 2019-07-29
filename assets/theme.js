@@ -1606,11 +1606,18 @@ theme.Header = (function() {
 
       var item = $(this.watchItem);
 
-      $('.color--header-active').fadeOut(200);
-
       $('.site-header').removeClass('black');
-
       $header.removeClass('stuck');
+
+      // HIDE MALAKOOTI
+      $('.homelogo').addClass('invisible');
+
+      $('.homelogo').one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(event) {
+        if (event.propertyName === 'opacity') {
+          $('.homelogo').addClass('hidden');
+        }
+      });
+
 
     });
 
@@ -1619,10 +1626,12 @@ theme.Header = (function() {
       var item = $(this.watchItem);
 
       $header.addClass('stuck');
-
-      $('.color--header-active').fadeIn(200);
-
       $('.site-header').addClass('black');
+
+      // SHOW MALAKOOTI
+      $('.homelogo').removeClass('hidden');
+      $('.homelogo').removeClass('invisible');
+
 
     });
 

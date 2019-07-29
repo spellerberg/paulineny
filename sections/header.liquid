@@ -98,9 +98,9 @@
       <div class="header__shifter full--w"></div>
 
       <div class="header-table paulineheader">
-        <a href="/" data-text="Pauline" itemprop="url" class="paulineheaderitem paulinesitelogo color--headerlogo color--header-active {% if template.name == 'index' %}hidden{% endif %}">Pauline</a>
-        <a data-text="Info" href="/pages/info" class="paulineheaderitem paulineinfolink">Info</a>
-        <a data-text="Cart" href="/cart" id="CartLink" class="paulineheaderitem paulinecartlink" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">Cart</a>
+        <div class="paulineheaderitem paulinesitelogo {% if template.name == 'index' %}homelogo invisible hidden{% endif %}"><a class="discolink" data-text="Pauline" href="/">Pauline</a></div>
+        <div class="paulineheaderitem paulineinfolink"><a class="discolink" data-text="Info" href="/pages/info">Info</a></div>
+        <div class="paulineheaderitem paulinecartlink"><a class="discolink" data-text="Cart" href="/cart" id="CartLink" {% if settings.ajax_cart_method == "modal" %}data-active-header-trigger data-active-target="cart" {% endif %}  tabindex="0"  data-top-level-item  aria-haspopup="true">Cart</a></div>
       </div>
 
     {% include 'header-active' %}

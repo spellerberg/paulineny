@@ -654,8 +654,6 @@ label[for] { cursor: pointer }
 
 .hv--span--border-bottom--primary-text:hover span { border-bottom: 1px solid #fff }
 
-// .hv--div--border-bottom--primary-text:hover>div { border-bottom: 1px solid #fff }
-
 .bg--primary-background { background-color: #000 }
 
 .hv--primary-background:hover { color: #000 }
@@ -1174,8 +1172,6 @@ label[for] { cursor: pointer }
 
 .hv--div--border-bottom--active-accent--overlay:hover>div { border-bottom: 1px solid #fff }
 
-
-
 .m0 { margin: 0 }
 .mt0 { margin-top: 0 }
 .mr0 { margin-right: 0 }
@@ -1587,7 +1583,8 @@ label[for] { cursor: pointer }
 
 body:not(.banner-image) .shopify-section:first-child section.bg--primary-background { padding-top: 1.25rem }
 
-@media only screen and (min-width: 990px) { body:not(.banner-image) .shopify-section:first-child section.bg--primary-background { padding-top: 2.5rem}
+@media only screen and (min-width: 990px) {
+  body:not(.banner-image) .shopify-section:first-child section.bg--primary-background { padding-top: 2.5rem}
 }
 
 .mobile-navigation { z-index: 1 }
@@ -1926,18 +1923,22 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 
   .header-table { padding: 0 2.5rem }
 
-  .paulineheader { line-height: 1.5; padding: 1rem 2.5rem; display: flex; }
+  .paulineheader { padding: 1rem 2.5rem; display: flex; }
+  .paulineheaderitem { flex: 1 1 0; }
 
-  .paulineheaderitem { position: relative; flex: 1 1 0; }
-  .paulineheaderitem::after,
-    .paulineheaderitem::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
-  .paulineheaderitem:hover::after { top: -.27em }
-  .paulineheaderitem:hover::before { top: .27em }
+  .discolink { position: relative; display: inline-block;}
+  .discolink::after,
+    .discolink::before { content: attr(data-text); position: absolute; width: 100%; height: 100%; right: 0; top: 0; transition: all 0.2s }
+  .discolink:hover::after { top: -.27em }
+  .discolink:hover::before { top: .27em }
 
   .paulinesitelogo { text-align: center; margin-bottom: 0; }
   .paulineinfolink { text-align: left; order: -1; }
   .paulinecartlink { text-align: right; }
 
+  .homelogo { transition: opacity 0.125s linear; }
+  .homelogo.invisible { opacity: 0; }
+  .homelogo.hidden { display: none; }
 
 }
 
@@ -1951,6 +1952,9 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 @media only screen and (min-width: 990px) {   .header-static-color { color: #fff }
   .header-static-color:hover .header__link-wrapper { border-color: #fff}
 }
+
+.termlybutton { background: transparent; padding: 0 0 0 1em; margin: 0 0 0 1em; border: none; border-left: 1px solid #fff; font: inherit; }
+
 
 .powered_by_link a { color: inherit }
 

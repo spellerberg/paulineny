@@ -229,55 +229,57 @@ label[for] { cursor: pointer }
 .grid--rev { text-align: left; direction: rtl }
 .grid--rev>.grid__item { float: right; text-align: left; direction: ltr }
 
-.one-whole { width: 100% }
-.one-half { width: 50% }
-.one-third { width: 33.33333% }
-.two-thirds { width: 66.66667% }
-.one-quarter { width: 25% }
-.two-quarters { width: 50% }
-.three-quarters { width: 75% }
-.one-fifth { width: 20% }
-.two-fifths { width: 40% }
-.three-fifths { width: 60% }
-.four-fifths { width: 80% }
-.one-sixth { width: 16.66667% }
-.two-sixths { width: 33.33333% }
-.three-sixths { width: 50% }
-.four-sixths { width: 66.66667% }
-.five-sixths { width: 83.33333% }
-.one-seventh { width: 14.28571% }
-.two-sevenths { width: 28.57143% }
-.three-sevenths { width: 42.85714% }
-.four-sevenths { width: 57.14286% }
-.five-sevenths { width: 71.42857% }
-.six-sevenths { width: 85.71429% }
-.one-eighth { width: 12.5% }
-.two-eighths { width: 25% }
-.three-eighths { width: 37.5% }
-.four-eighths { width: 50% }
-.five-eighths { width: 62.5% }
-.six-eighths { width: 75% }
-.seven-eighths { width: 87.5% }
-.one-tenth { width: 10% }
-.two-tenths { width: 20% }
-.three-tenths { width: 30% }
-.four-tenths { width: 40% }
-.five-tenths { width: 50% }
-.six-tenths { width: 60% }
-.seven-tenths { width: 70% }
-.eight-tenths { width: 80% }
-.nine-tenths { width: 90% }
-.one-twelfth { width: 8.33333% }
-.two-twelfths { width: 16.66667% }
-.three-twelfths { width: 25% }
-.four-twelfths { width: 33.33333% }
-.five-twelfths { width: 41.66667% }
-.six-twelfths { width: 50% }
-.seven-twelfths { width: 58.33333% }
-.eight-twelfths { width: 66.66667% }
-.nine-twelfths { width: 75% }
-.ten-twelfths { width: 83.33333% }
-.eleven-twelfths { width: 91.66667% }
+@media only screen and (min-width: 700px) {
+  .one-whole { width: 100% }
+  .one-half { width: 50% }
+  .one-third { width: 33.33333% }
+  .two-thirds { width: 66.66667% }
+  .one-quarter { width: 25% }
+  .two-quarters { width: 50% }
+  .three-quarters { width: 75% }
+  .one-fifth { width: 20% }
+  .two-fifths { width: 40% }
+  .three-fifths { width: 60% }
+  .four-fifths { width: 80% }
+  .one-sixth { width: 16.66667% }
+  .two-sixths { width: 33.33333% }
+  .three-sixths { width: 50% }
+  .four-sixths { width: 66.66667% }
+  .five-sixths { width: 83.33333% }
+  .one-seventh { width: 14.28571% }
+  .two-sevenths { width: 28.57143% }
+  .three-sevenths { width: 42.85714% }
+  .four-sevenths { width: 57.14286% }
+  .five-sevenths { width: 71.42857% }
+  .six-sevenths { width: 85.71429% }
+  .one-eighth { width: 12.5% }
+  .two-eighths { width: 25% }
+  .three-eighths { width: 37.5% }
+  .four-eighths { width: 50% }
+  .five-eighths { width: 62.5% }
+  .six-eighths { width: 75% }
+  .seven-eighths { width: 87.5% }
+  .one-tenth { width: 10% }
+  .two-tenths { width: 20% }
+  .three-tenths { width: 30% }
+  .four-tenths { width: 40% }
+  .five-tenths { width: 50% }
+  .six-tenths { width: 60% }
+  .seven-tenths { width: 70% }
+  .eight-tenths { width: 80% }
+  .nine-tenths { width: 90% }
+  .one-twelfth { width: 8.33333% }
+  .two-twelfths { width: 16.66667% }
+  .three-twelfths { width: 25% }
+  .four-twelfths { width: 33.33333% }
+  .five-twelfths { width: 41.66667% }
+  .six-twelfths { width: 50% }
+  .seven-twelfths { width: 58.33333% }
+  .eight-twelfths { width: 66.66667% }
+  .nine-twelfths { width: 75% }
+  .ten-twelfths { width: 83.33333% }
+  .eleven-twelfths { width: 91.66667% }
+}
 
 .show { display: block !important }
 .hide { display: none !important }
@@ -1953,9 +1955,6 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
   .header-static-color:hover .header__link-wrapper { border-color: #fff}
 }
 
-.termlybutton { background: transparent; padding: 0 0 0 1em; margin: 0 0 0 1em; border: none; border-left: 1px solid #fff; font: inherit; }
-
-
 .powered_by_link a { color: inherit }
 
 .payment-icon { width: 40px; height: 28px }
@@ -2068,6 +2067,16 @@ tfoot>.responsive-table-row:first-child::after { content: ''; position: absolute
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; padding: 0 2.5rem }
 .footer-copyright { text-align: left }
 .footer-social { text-align: right }
+
+.termlybutton { background: transparent; border: none; display: block; margin: 0; padding: 0; font: inherit; }
+
+
+@media only screen and (max-width: 749px) {
+
+  .footer-grid { display: block; padding: 0 1.25rem; }
+  .footer-social { text-align: left; }
+
+}
 
 .productoption { border: none; margin: 0; padding: 0 }
 .productoption legend { text-decoration: underline; }

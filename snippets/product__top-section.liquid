@@ -145,26 +145,26 @@
             <div id="AddToCartForm--{{ section_id }}" class="form-vertical">
             {% form 'product', product %}
 
-<!-- Begin -->
-<fieldset class="productoption">
-<legend for="variant">{{ option.name }}</legend>
-{% for variant in product.variants %}
+            <!-- Begin Variant -->
+            <fieldset class="productoption">
+            <legend for="variant">Size</legend>
+            {% for variant in product.variants %}
 
-		  {% if variant.available %}
-        <input type="radio" name="variant" value="{{ variant.id }}" id="radio_{{ variant.id }}" />
-			  <label for="radio_{{ variant.id }}" class="radio">
-				  {{ variant.title | escape }}
-			  </label>
-		  {% else %}
-      <input type="radio" name="variant" value="{{ variant.id }}" id="radio_{{ variant.id }}" disabled="disabled" />
-      <label for="radio_{{ variant.id }}" class="radio">
-        <s>{{ variant.title | escape }}</s>
-      </label>
-		  {% endif %}
+            		  {% if variant.available %}
+                    <input type="radio" name="variant" value="{{ variant.id }}" id="radio_{{ variant.id }}" />
+            			  <label for="radio_{{ variant.id }}" class="radio">
+            				  {{ variant.title | escape }}
+            			  </label>
+            		  {% else %}
+                  <input type="radio" name="variant" value="{{ variant.id }}" id="radio_{{ variant.id }}" disabled="disabled" />
+                  <label for="radio_{{ variant.id }}" class="radio">
+                    <s>{{ variant.title | escape }}</s>
+                  </label>
+            		  {% endif %}
 
-  {% endfor %}
-</fieldset>
-<!-- End -->
+              {% endfor %}
+            </fieldset>
+            <!-- End -->
 
               <select name="id" class="no-js" data-product-select>
                 {% for variant in product.variants %}

@@ -2503,21 +2503,20 @@ theme.Product = (function() {
         $(selectors.priceWrapper, this.$container).removeClass("invisible");
       } else {
         $(selectors.addToCart, this.$container).prop("disabled", true);
-        $(selectors.addToCartText, this.$container).html(
-          theme.strings.unavailable
-        );
+        $(selectors.addToCartText, this.$container).html(theme.strings.unavailable);
+        $(selectors.addToCartText, this.$container).attr('data-text', theme.strings.unavailable);
         $(selectors.priceWrapper, this.$container).addClass("invisible");
         return;
       }
 
       if (variant.available) {
         $(selectors.addToCart, this.$container).prop("disabled", false);
-        $(selectors.addToCartText, this.$container).html(
-          theme.strings.addToCart
-        );
+        $(selectors.addToCartText, this.$container).html(theme.strings.addToCart);
+        $(selectors.addToCartText, this.$container).attr('data-text', theme.strings.addToCart);
       } else {
         $(selectors.addToCart, this.$container).prop("disabled", true);
         $(selectors.addToCartText, this.$container).html(theme.strings.soldOut);
+        $(selectors.addToCartText, this.$container).attr('data-text', theme.strings.soldOut);
       }
     },
 

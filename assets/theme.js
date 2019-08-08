@@ -1610,7 +1610,7 @@ theme.Header = (function() {
       $header.removeClass('stuck');
 
       // HIDE MALAKOOTI
-      $('.homelogo').addClass('invisible');
+      $('.homelogo').addClass('notvisible');
 
       $('.homelogo').one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(event) {
         if (event.propertyName === 'opacity') {
@@ -1630,7 +1630,7 @@ theme.Header = (function() {
 
       // SHOW MALAKOOTI
       $('.homelogo').removeClass('hidden');
-      $('.homelogo').removeClass('invisible');
+      $('.homelogo').removeClass('notvisible');
 
 
     });

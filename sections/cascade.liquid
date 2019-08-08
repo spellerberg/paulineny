@@ -80,6 +80,7 @@
                   {% assign image = block.settings.image %}
                   {% assign image_ratio = block.settings.image.aspect_ratio  | plus: 0 %}
                   {% assign cta_url = block.settings.cta_url %}
+                  <!-- Image -->
                   <div class="image-holder {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                     {% capture img_id %}ItemImage-{{ image.id }}{% endcapture %}
                     {% capture wrapper_id %}ItemImageWrapper-{{ image.id }}{% endcapture %}
@@ -134,6 +135,7 @@
                 {% assign cta_text = block.settings.cta_text %}
                 {% assign cta_url = block.settings.cta_url %}
                 {% assign local_color = block.settings.section_color %}
+                <!-- Image with Text -->
                 <div class="image-with-text__container relative  {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                   <div class="image-with-text__image">
                     {% assign image = block.settings.image %}
@@ -207,6 +209,7 @@
               ============================================================================== *
               {% endcomment %}
               {% if block.type == 'video' %}
+              <!-- Video -->
                 <div class="video-holder {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                   {% if block.settings.video_url %}
                     {% if block.settings.video_url.type == 'youtube' %}
@@ -283,6 +286,7 @@
               ============================================================================== *
               {% endcomment %}
               {% if block.type == 'rich_text' or block.type == 'heading' or block.type == 'text' %}
+              <!-- Rich Text -->
               <div class="rich-text rich-text--{{ block.id }} {{ block.settings.text_align}}">
                 <div class="seven-eighths mx--auto pm--three-quarters wd--two-thirds">
                   {% if block.settings.heading != blank   %}
@@ -328,6 +332,7 @@
                       {% assign image = product.featured_image.src  %}
                     {% endfor %}
                   {% endif %}
+                  <!-- Collection -->
                   <div class="image-with-text__container relative  {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                     <div class="image-with-text__image">
                       {% assign image_ratio = block.settings.image.aspect_ratio  | plus: 0 %}
@@ -396,6 +401,7 @@
                 {% assign local_color = block.settings.text_color %}
                 {% if block.settings.article and block.settings.article != '' %}
                   {% assign article = articles[block.settings.article] %}
+                  <!-- Article -->
                   <div class="grid">
                     <div class="grid__item {% if block_width_desktop == 'full' %}lg--up--four-sevenths{% endif %}">
                       <a href="{{ article.url  }}">
@@ -474,6 +480,7 @@
               ============================================================================== *
               {% endcomment %}
               {% if block.type == 'product_simple' %}
+              <!-- Product - Simple -->
               <div class="product product--{{ block.id }} {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
                 {%- assign product = all_products[block.settings.product] -%}
                 {% if product == empty %}
@@ -492,6 +499,7 @@
               {% endcomment %}
 
               {% if block.type == 'product_feature' %}
+              <!-- Product - Feature -->
               <div class="product product--{{ block.id }}">
                 {%- assign product = all_products[block.settings.product] -%}
                 {%- assign current_variant = product.selected_or_first_available_variant -%}

@@ -204,72 +204,7 @@
               {% if block.type == 'video' %}
               <!-- Video -->
                 <div class="video-holder {% if col_count_mobile == 2 or col_count_mobile == 3 %}seven-eighths mx--auto{% endif %} {% if col_count_desktop == 2 or col_count_desktop == 3 %}lg--up--five-sixths lg--up--mx--auto{% endif %}">
-                  {% if block.settings.video_url %}
-                    {% if block.settings.video_url.type == 'youtube' %}
-                      {% capture image_url_mq %}//img.youtube.com/vi/{{ block.settings.video_url.id }}/mqdefault.jpg{% endcapture %}
-                      {% if block.settings.use_high_res_image %}
-                      {% capture image_url_max %}//img.youtube.com/vi/{{ block.settings.video_url.id }}/maxresdefault.jpg{% endcapture %}
-                      {% else %}
-                      {% capture image_url_max %}//img.youtube.com/vi/{{ block.settings.video_url.id }}/hqdefault.jpg{% endcapture %}
-                      {% endif %}
-                      <div class="resp-img-wrapper js">
-                        <div style="padding-top: 56.25%;">
-                          <img
-                               class="resp-img lazyload"
-                               data-srcset="{{ image_url_mq }} 320w,
-                                            {{ image_url_max }}"
-                               data-sizes="auto"
-                               >
-                        </div>
-                        <a href="//www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&showinfo=0&controls=1" class="absolute top--0 left--0 full pointer modaal z1" data-modaal-type="video">
-                          <div class="full flex items--center justify--center color--white-text">
-                            {% include 'svg' | icon: 'icon-play' %}
-                          </div>
-                        </a>
-                      </div>
-                      <noscript>
-                        <img src="{{ image_url_max }}">
-                      </noscript>
-                    {% endif %}
-                    {% if block.settings.video_url.type == 'vimeo' %}
-                      <div class="resp-img-wrapper js">
-                        <div style="padding-top: 56.25%;">
-                          <img
-                               class="resp-img vimeo-thumbnail"
-                               data-src=""
-                               data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
-                               data-aspectratio="{{ image.aspect_ratio }}"
-                               data-sizes="auto"
-                               data-vimeo-id='{{ block.settings.video_url.id }}'
-                               data-vimeo-thumb
-                               >
-                        </div>
-                        <a href="//player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1%color={{ settings.color_primary }}&title=0&byline=0" class="absolute top--0 left--0 full pointer modaal z1" data-modaal-type="video">
-                          <div class="full flex items--center justify--center color--white-text">
-                            {% include 'svg' | icon: 'icon-play' %}
-                          </div>
-                        </a>
-                      </div>
-                    {% endif %}
-                  {% else %}
-                    <div class="resp-img-wrapper js">
-                      <div style="padding-top: 56.25%;">
-                       <div class="placeholder-img-wrapper {{ placeholder_bg }}">
-                         <div style="padding-top:56.25%;" class="relative">
-                           {{ 'lifestyle-1' | placeholder_svg_tag }}
-                         </div>
-                       </div>
-                      </div>
-                      <a class="absolute top--0 left--0 full pointer z1">
-                        <div class="full flex items--center justify--center color--white">
-                          {% include 'svg' | icon: 'icon-play' %}
-                        </div>
-                      </a>
-                    </div>
-                    <noscript>
-                      <img src="{{ image_url_max }}">
-                    </noscript>
-                  {% endif %}
+                    <iframe src="https://player.vimeo.com/video/353043145" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
               {% endif %}
 
